@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
+    <entity name="Module" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="module_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="module_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="suite" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Suite" inverseName="module" inverseEntity="Suite" syncable="YES"/>
+    </entity>
+    <entity name="Question" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="option" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="result" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="suite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Suite" inverseName="question" inverseEntity="Suite" syncable="YES"/>
+    </entity>
+    <entity name="Suite" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="module" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Module" inverseName="suite" inverseEntity="Module" syncable="YES"/>
+        <relationship name="question" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="suite" inverseEntity="Question" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Question" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Module" positionX="-54" positionY="0" width="128" height="105"/>
+        <element name="Suite" positionX="-18" positionY="45" width="128" height="120"/>
+    </elements>
+</model>
