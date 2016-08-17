@@ -8,6 +8,7 @@
 
 #import "SecondSelectViewController.h"
 #import "TestViewController.h"
+#import "SecondSelectTableViewCell.h"
 
 @interface SecondSelectViewController ()
 
@@ -29,10 +30,10 @@
 
 -(void)initViewLayout
 {
-    UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0, 110, SCREEN_WIDTH, SCREEN_HEIGHT-110)];
+    UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     table.delegate = self;
     table.dataSource = self;
-    [table flashScrollIndicators];
+//    [table flashScrollIndicators];
     
     [self.view addSubview:table];
     
@@ -57,19 +58,22 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    SecondSelectTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"SecondSelectTableViewCell" owner:nil options:nil]firstObject];
     }
     
-    cell.textLabel.text = _array[indexPath.row];
+    cell.number.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    cell.title.text = _array[indexPath.row];
     
     return  cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     TestViewController *test = [[TestViewController alloc]init];
     [self.navigationController pushViewController:test animated:YES];
 }

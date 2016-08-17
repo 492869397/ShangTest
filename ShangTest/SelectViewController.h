@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectViewController : UIViewController
+@interface SelectViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @end

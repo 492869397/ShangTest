@@ -10,6 +10,8 @@
 #import "SelectViewController.h"
 #import "ApplyViewController.h"
 
+#import "InitModel.h"
+
 @interface AppDelegate ()
 
 @end
@@ -46,7 +48,15 @@
 {
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"Model.sqlite"];
     
+    //判断是否需要从网络获取数据
+//    if () {
+    [self getModelDataFromNet];
+//    }
+}
 
+-(void)getModelDataFromNet
+{
+    [InitModel setModel];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

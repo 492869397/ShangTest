@@ -16,6 +16,8 @@
 
 #import "RootNavigationController.h"
 
+#import <AFNetworking.h>
+
 //1. 对于约束参数可以省去"mas_"
 #define MAS_SHORTHAND
 

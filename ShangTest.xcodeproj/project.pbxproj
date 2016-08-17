@@ -20,16 +20,19 @@
 		BF749CE01D59AD7E00D22B6B /* ShangTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CDF1D59AD7E00D22B6B /* ShangTestUITests.m */; };
 		BF749CEF1D59AEEA00D22B6B /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CEE1D59AEEA00D22B6B /* SelectViewController.m */; };
 		BF749CF91D59B3C900D22B6B /* SecondSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CF81D59B3C900D22B6B /* SecondSelectViewController.m */; };
-		BF749CFB1D59BAE000D22B6B /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = BF749CFA1D59BAE000D22B6B /* AFNetworking */; };
 		BF749CFE1D59C01400D22B6B /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CFD1D59C01400D22B6B /* TestViewController.m */; };
 		BF749D011D59D91900D22B6B /* TestMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749D001D59D91900D22B6B /* TestMainView.m */; };
 		BF790C891D62B73E006CE990 /* SchoolDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF790C871D62B73E006CE990 /* SchoolDetailTableViewCell.m */; };
 		BF790C8A1D62B73E006CE990 /* SchoolDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF790C881D62B73E006CE990 /* SchoolDetailTableViewCell.xib */; };
 		BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF790C8B1D62C55B006CE990 /* Question.xcdatamodeld */; };
+		BF790C901D630AC2006CE990 /* InitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF790C8F1D630AC2006CE990 /* InitModel.m */; };
 		BFA098771D616A410032445E /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA098761D616A410032445E /* RootNavigationController.m */; };
 		BFA0987B1D6170500032445E /* ApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA098791D6170500032445E /* ApplyViewController.m */; };
+		BFA1ACB81D641AED0010E3D2 /* SelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1ACB61D641AED0010E3D2 /* SelectCollectionViewCell.m */; };
+		BFA1ACB91D641AED0010E3D2 /* SelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA1ACB71D641AED0010E3D2 /* SelectCollectionViewCell.xib */; };
+		BFB3F54C1D643BAA0004C94B /* SecondSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB3F54A1D643BAA0004C94B /* SecondSelectTableViewCell.m */; };
+		BFB3F54D1D643BAA0004C94B /* SecondSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F54B1D643BAA0004C94B /* SecondSelectTableViewCell.xib */; };
 		BFDC9C081D5B0AE500D57616 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9C071D5B0AE500D57616 /* QuestionModel.m */; };
-		BFDC9C0C1D5B100100D57616 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDC9C0B1D5B100100D57616 /* CoreData.framework */; };
 		BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */; };
 		BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */; };
 /* End PBXBuildFile section */
@@ -78,7 +81,6 @@
 		BF749CF61D59B0C200D22B6B /* DefualtDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DefualtDefine.h; sourceTree = "<group>"; };
 		BF749CF71D59B3C900D22B6B /* SecondSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSelectViewController.h; sourceTree = "<group>"; };
 		BF749CF81D59B3C900D22B6B /* SecondSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSelectViewController.m; sourceTree = "<group>"; };
-		BF749CFA1D59BAE000D22B6B /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
 		BF749CFC1D59C01400D22B6B /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		BF749CFD1D59C01400D22B6B /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		BF749CFF1D59D91900D22B6B /* TestMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMainView.h; sourceTree = "<group>"; };
@@ -87,13 +89,20 @@
 		BF790C871D62B73E006CE990 /* SchoolDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailTableViewCell.m; sourceTree = "<group>"; };
 		BF790C881D62B73E006CE990 /* SchoolDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolDetailTableViewCell.xib; sourceTree = "<group>"; };
 		BF790C8C1D62C55B006CE990 /* Question.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Question.xcdatamodel; sourceTree = "<group>"; };
+		BF790C8E1D630AC2006CE990 /* InitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModel.h; sourceTree = "<group>"; };
+		BF790C8F1D630AC2006CE990 /* InitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModel.m; sourceTree = "<group>"; };
 		BFA098751D616A410032445E /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		BFA098761D616A410032445E /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		BFA098781D6170500032445E /* ApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyViewController.h; sourceTree = "<group>"; };
 		BFA098791D6170500032445E /* ApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyViewController.m; sourceTree = "<group>"; };
+		BFA1ACB51D641AED0010E3D2 /* SelectCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCollectionViewCell.h; sourceTree = "<group>"; };
+		BFA1ACB61D641AED0010E3D2 /* SelectCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCollectionViewCell.m; sourceTree = "<group>"; };
+		BFA1ACB71D641AED0010E3D2 /* SelectCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCollectionViewCell.xib; sourceTree = "<group>"; };
+		BFB3F5491D643BAA0004C94B /* SecondSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSelectTableViewCell.h; sourceTree = "<group>"; };
+		BFB3F54A1D643BAA0004C94B /* SecondSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSelectTableViewCell.m; sourceTree = "<group>"; };
+		BFB3F54B1D643BAA0004C94B /* SecondSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondSelectTableViewCell.xib; sourceTree = "<group>"; };
 		BFDC9C061D5B0AE500D57616 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
 		BFDC9C071D5B0AE500D57616 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
-		BFDC9C0B1D5B100100D57616 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMainView.xib; sourceTree = "<group>"; };
 		BFDC9CCE1D5C0F5500D57616 /* AnswerBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerBoard.h; sourceTree = "<group>"; };
 		BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerBoard.m; sourceTree = "<group>"; };
@@ -106,7 +115,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFDC9C0C1D5B100100D57616 /* CoreData.framework in Frameworks */,
 				900A3C8AD5D36F231E7C108B /* libPods-ShangTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +180,8 @@
 			children = (
 				BF749CBD1D59AD7D00D22B6B /* AppDelegate.h */,
 				BF749CBE1D59AD7D00D22B6B /* AppDelegate.m */,
+				BF790C8E1D630AC2006CE990 /* InitModel.h */,
+				BF790C8F1D630AC2006CE990 /* InitModel.m */,
 				BFA098751D616A410032445E /* RootNavigationController.h */,
 				BFA098761D616A410032445E /* RootNavigationController.m */,
 				BFA4EF631D61AD0D00A66D15 /* 报名 */,
@@ -218,7 +228,6 @@
 		BF749CF01D59AFEE00D22B6B /* Third Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BF749CFA1D59BAE000D22B6B /* AFNetworking */,
 			);
 			name = "Third Frameworks";
 			sourceTree = "<group>";
@@ -228,8 +237,14 @@
 			children = (
 				BF749CED1D59AEE900D22B6B /* SelectViewController.h */,
 				BF749CEE1D59AEEA00D22B6B /* SelectViewController.m */,
+				BFA1ACB51D641AED0010E3D2 /* SelectCollectionViewCell.h */,
+				BFA1ACB61D641AED0010E3D2 /* SelectCollectionViewCell.m */,
+				BFA1ACB71D641AED0010E3D2 /* SelectCollectionViewCell.xib */,
 				BF749CF71D59B3C900D22B6B /* SecondSelectViewController.h */,
 				BF749CF81D59B3C900D22B6B /* SecondSelectViewController.m */,
+				BFB3F5491D643BAA0004C94B /* SecondSelectTableViewCell.h */,
+				BFB3F54A1D643BAA0004C94B /* SecondSelectTableViewCell.m */,
+				BFB3F54B1D643BAA0004C94B /* SecondSelectTableViewCell.xib */,
 				BF749CFC1D59C01400D22B6B /* TestViewController.h */,
 				BF749CFD1D59C01400D22B6B /* TestViewController.m */,
 				BF749CFF1D59D91900D22B6B /* TestMainView.h */,
@@ -272,7 +287,6 @@
 		BFDC9C0D1D5B106A00D57616 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BFDC9C0B1D5B100100D57616 /* CoreData.framework */,
 			);
 			name = Frameworks;
 			path = ..;
@@ -389,9 +403,10 @@
 				BF711BD81D62B0D4003E00C5 /* SchoolDetailViewController.xib in Resources */,
 				BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */,
 				BF749CC71D59AD7E00D22B6B /* Assets.xcassets in Resources */,
+				BFA1ACB91D641AED0010E3D2 /* SelectCollectionViewCell.xib in Resources */,
+				BFB3F54D1D643BAA0004C94B /* SecondSelectTableViewCell.xib in Resources */,
 				BF790C8A1D62B73E006CE990 /* SchoolDetailTableViewCell.xib in Resources */,
 				BF711BCE1D62A8E5003E00C5 /* LaunchScreen.xib in Resources */,
-				BF749CFB1D59BAE000D22B6B /* AFNetworking in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +481,7 @@
 			files = (
 				BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */,
 				BF711BD21D62ACA0003E00C5 /* SchoolTableViewCell.m in Sources */,
+				BF790C901D630AC2006CE990 /* InitModel.m in Sources */,
 				BF749CEF1D59AEEA00D22B6B /* SelectViewController.m in Sources */,
 				BF749CBF1D59AD7D00D22B6B /* AppDelegate.m in Sources */,
 				BF749CF91D59B3C900D22B6B /* SecondSelectViewController.m in Sources */,
@@ -473,8 +489,10 @@
 				BFA098771D616A410032445E /* RootNavigationController.m in Sources */,
 				BF749D011D59D91900D22B6B /* TestMainView.m in Sources */,
 				BF790C891D62B73E006CE990 /* SchoolDetailTableViewCell.m in Sources */,
+				BFB3F54C1D643BAA0004C94B /* SecondSelectTableViewCell.m in Sources */,
 				BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */,
 				BF749CBC1D59AD7D00D22B6B /* main.m in Sources */,
+				BFA1ACB81D641AED0010E3D2 /* SelectCollectionViewCell.m in Sources */,
 				BFA0987B1D6170500032445E /* ApplyViewController.m in Sources */,
 				BFDC9C081D5B0AE500D57616 /* QuestionModel.m in Sources */,
 				BF749CFE1D59C01400D22B6B /* TestViewController.m in Sources */,
