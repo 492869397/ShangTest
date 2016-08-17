@@ -25,7 +25,7 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.dataArray = [NSMutableArray arrayWithObjects:@"sdf",@"df",@"fgs",@"hgfs", nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"sdf",@"df",@"fgs",@"hgfs",@"",@"sdf",@"df",@"fgs",@"hgfs",@"",@"sdf",@"df",@"fgs",@"hgfs",@"", nil];
     
     [self initSubviews];
     
@@ -37,8 +37,9 @@
     layout.minimumLineSpacing = 0.5;
     layout.minimumInteritemSpacing = 0.5;
     layout.itemSize = CGSizeMake((SCREEN_WIDTH-0.5)/2, 100);
+//    layout.sectionInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     
-    UICollectionView *collect = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64-49) collectionViewLayout:layout];
+    UICollectionView *collect = [[UICollectionView alloc]initWithFrame:CGRectMake(0,64, SCREEN_WIDTH, SCREEN_HEIGHT-64-49) collectionViewLayout:layout];
     collect.delegate = self;
     collect.dataSource = self;
     
@@ -82,6 +83,8 @@
     SecondSelectViewController *viewController = [[SecondSelectViewController alloc]init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
+
+
 
 
 @end

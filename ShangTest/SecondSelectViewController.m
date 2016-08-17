@@ -7,8 +7,8 @@
 //
 
 #import "SecondSelectViewController.h"
-#import "TestViewController.h"
 #import "SecondSelectTableViewCell.h"
+#import "TestTypeViewController.h"
 
 @interface SecondSelectViewController ()
 
@@ -74,7 +74,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    TestViewController *test = [[TestViewController alloc]init];
+    TestTypeViewController *test = [[TestTypeViewController alloc]init];
     [self.navigationController pushViewController:test animated:YES];
 }
 

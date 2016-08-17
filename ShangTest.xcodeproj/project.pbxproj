@@ -32,6 +32,10 @@
 		BFA1ACB91D641AED0010E3D2 /* SelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFA1ACB71D641AED0010E3D2 /* SelectCollectionViewCell.xib */; };
 		BFB3F54C1D643BAA0004C94B /* SecondSelectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB3F54A1D643BAA0004C94B /* SecondSelectTableViewCell.m */; };
 		BFB3F54D1D643BAA0004C94B /* SecondSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F54B1D643BAA0004C94B /* SecondSelectTableViewCell.xib */; };
+		BFB3F5511D644FD60004C94B /* TestTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB3F54F1D644FD60004C94B /* TestTypeViewController.m */; };
+		BFB3F5521D644FD60004C94B /* TestTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5501D644FD60004C94B /* TestTypeViewController.xib */; };
+		BFB3F5561D6451FB0004C94B /* TestTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB3F5541D6451FB0004C94B /* TestTypeTableViewCell.m */; };
+		BFB3F5571D6451FB0004C94B /* TestTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5551D6451FB0004C94B /* TestTypeTableViewCell.xib */; };
 		BFDC9C081D5B0AE500D57616 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9C071D5B0AE500D57616 /* QuestionModel.m */; };
 		BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */; };
 		BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */; };
@@ -101,6 +105,12 @@
 		BFB3F5491D643BAA0004C94B /* SecondSelectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondSelectTableViewCell.h; sourceTree = "<group>"; };
 		BFB3F54A1D643BAA0004C94B /* SecondSelectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSelectTableViewCell.m; sourceTree = "<group>"; };
 		BFB3F54B1D643BAA0004C94B /* SecondSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondSelectTableViewCell.xib; sourceTree = "<group>"; };
+		BFB3F54E1D644FD60004C94B /* TestTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTypeViewController.h; sourceTree = "<group>"; };
+		BFB3F54F1D644FD60004C94B /* TestTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTypeViewController.m; sourceTree = "<group>"; };
+		BFB3F5501D644FD60004C94B /* TestTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTypeViewController.xib; sourceTree = "<group>"; };
+		BFB3F5531D6451FB0004C94B /* TestTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTypeTableViewCell.h; sourceTree = "<group>"; };
+		BFB3F5541D6451FB0004C94B /* TestTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTypeTableViewCell.m; sourceTree = "<group>"; };
+		BFB3F5551D6451FB0004C94B /* TestTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTypeTableViewCell.xib; sourceTree = "<group>"; };
 		BFDC9C061D5B0AE500D57616 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
 		BFDC9C071D5B0AE500D57616 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
 		BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMainView.xib; sourceTree = "<group>"; };
@@ -185,7 +195,7 @@
 				BFA098751D616A410032445E /* RootNavigationController.h */,
 				BFA098761D616A410032445E /* RootNavigationController.m */,
 				BFA4EF631D61AD0D00A66D15 /* 报名 */,
-				BFA098741D6153BD0032445E /* 答题页面 */,
+				BFA098741D6153BD0032445E /* 学习 */,
 				BFA4EF641D61AD8100A66D15 /* Model */,
 				BF749CC61D59AD7E00D22B6B /* Assets.xcassets */,
 				BF711BCD1D62A8E5003E00C5 /* LaunchScreen.xib */,
@@ -232,9 +242,10 @@
 			name = "Third Frameworks";
 			sourceTree = "<group>";
 		};
-		BFA098741D6153BD0032445E /* 答题页面 */ = {
+		BFA098741D6153BD0032445E /* 学习 */ = {
 			isa = PBXGroup;
 			children = (
+				BFB3F5581D64603A0004C94B /* 答题页面 */,
 				BF749CED1D59AEE900D22B6B /* SelectViewController.h */,
 				BF749CEE1D59AEEA00D22B6B /* SelectViewController.m */,
 				BFA1ACB51D641AED0010E3D2 /* SelectCollectionViewCell.h */,
@@ -245,15 +256,16 @@
 				BFB3F5491D643BAA0004C94B /* SecondSelectTableViewCell.h */,
 				BFB3F54A1D643BAA0004C94B /* SecondSelectTableViewCell.m */,
 				BFB3F54B1D643BAA0004C94B /* SecondSelectTableViewCell.xib */,
+				BFB3F54E1D644FD60004C94B /* TestTypeViewController.h */,
+				BFB3F54F1D644FD60004C94B /* TestTypeViewController.m */,
+				BFB3F5501D644FD60004C94B /* TestTypeViewController.xib */,
+				BFB3F5531D6451FB0004C94B /* TestTypeTableViewCell.h */,
+				BFB3F5541D6451FB0004C94B /* TestTypeTableViewCell.m */,
+				BFB3F5551D6451FB0004C94B /* TestTypeTableViewCell.xib */,
 				BF749CFC1D59C01400D22B6B /* TestViewController.h */,
 				BF749CFD1D59C01400D22B6B /* TestViewController.m */,
-				BF749CFF1D59D91900D22B6B /* TestMainView.h */,
-				BF749D001D59D91900D22B6B /* TestMainView.m */,
-				BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */,
-				BFDC9CCE1D5C0F5500D57616 /* AnswerBoard.h */,
-				BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */,
 			);
-			name = "答题页面";
+			name = "学习";
 			sourceTree = "<group>";
 		};
 		BFA4EF631D61AD0D00A66D15 /* 报名 */ = {
@@ -282,6 +294,18 @@
 				BF790C8B1D62C55B006CE990 /* Question.xcdatamodeld */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		BFB3F5581D64603A0004C94B /* 答题页面 */ = {
+			isa = PBXGroup;
+			children = (
+				BF749CFF1D59D91900D22B6B /* TestMainView.h */,
+				BF749D001D59D91900D22B6B /* TestMainView.m */,
+				BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */,
+				BFDC9CCE1D5C0F5500D57616 /* AnswerBoard.h */,
+				BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */,
+			);
+			name = "答题页面";
 			sourceTree = "<group>";
 		};
 		BFDC9C0D1D5B106A00D57616 /* Frameworks */ = {
@@ -401,6 +425,8 @@
 			files = (
 				BF711BD31D62ACA0003E00C5 /* SchoolTableViewCell.xib in Resources */,
 				BF711BD81D62B0D4003E00C5 /* SchoolDetailViewController.xib in Resources */,
+				BFB3F5521D644FD60004C94B /* TestTypeViewController.xib in Resources */,
+				BFB3F5571D6451FB0004C94B /* TestTypeTableViewCell.xib in Resources */,
 				BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */,
 				BF749CC71D59AD7E00D22B6B /* Assets.xcassets in Resources */,
 				BFA1ACB91D641AED0010E3D2 /* SelectCollectionViewCell.xib in Resources */,
@@ -493,8 +519,10 @@
 				BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */,
 				BF749CBC1D59AD7D00D22B6B /* main.m in Sources */,
 				BFA1ACB81D641AED0010E3D2 /* SelectCollectionViewCell.m in Sources */,
+				BFB3F5511D644FD60004C94B /* TestTypeViewController.m in Sources */,
 				BFA0987B1D6170500032445E /* ApplyViewController.m in Sources */,
 				BFDC9C081D5B0AE500D57616 /* QuestionModel.m in Sources */,
+				BFB3F5561D6451FB0004C94B /* TestTypeTableViewCell.m in Sources */,
 				BF749CFE1D59C01400D22B6B /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
