@@ -29,18 +29,18 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="java" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1C-88-85y">
-                        <rect key="frame" x="58" y="25" width="38" height="26"/>
+                        <rect key="frame" x="55" y="25" width="38" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3T-II-9dx">
-                        <rect key="frame" x="23" y="25" width="25" height="25"/>
+                        <rect key="frame" x="23" y="27" width="22" height="22"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="1vf-Ey-gkJ"/>
+                            <constraint firstAttribute="height" constant="22" id="1vf-Ey-gkJ"/>
                             <constraint firstAttribute="height" constant="21" id="F9j-Uo-h44"/>
-                            <constraint firstAttribute="width" constant="25" id="W0C-uH-C0W"/>
+                            <constraint firstAttribute="width" constant="22" id="W0C-uH-C0W"/>
                             <constraint firstAttribute="width" constant="21" id="Zzw-L3-Sup"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>

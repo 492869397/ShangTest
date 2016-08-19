@@ -10,9 +10,11 @@
 #import "SecondSelectViewController.h"
 #import "SelectCollectionViewCell.h"
 
+
 @interface SelectViewController ()
 
 @property(strong,nonatomic)NSMutableArray *dataArray;
+@property(strong,nonatomic)UICollectionView *collect;
 
 @end
 
@@ -21,11 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.view.backgroundColor = [UIColor whiteColor];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.dataArray = [NSMutableArray arrayWithObjects:@"sdf",@"df",@"fgs",@"hgfs",@"",@"sdf",@"df",@"fgs",@"hgfs",@"",@"sdf",@"df",@"fgs",@"hgfs",@"", nil];
+    self.dataArray = [NSMutableArray arrayWithObjects:@"习题收藏",@"考试测试",@"认证考试",@"阶段复习",@"练习历史",@"人事65问",@"错题记录",@"企业面试",@"意见反馈",@"逻辑思维", nil];
     
     [self initSubviews];
     
@@ -39,18 +40,19 @@
     layout.itemSize = CGSizeMake((SCREEN_WIDTH-0.5)/2, 100);
 //    layout.sectionInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     
-    UICollectionView *collect = [[UICollectionView alloc]initWithFrame:CGRectMake(0,64, SCREEN_WIDTH, SCREEN_HEIGHT-64-49) collectionViewLayout:layout];
-    collect.delegate = self;
-    collect.dataSource = self;
+    self.collect = [[UICollectionView alloc]initWithFrame:CGRectMake(0,64, SCREEN_WIDTH, SCREEN_HEIGHT-64-49) collectionViewLayout:layout];
+    _collect.delegate = self;
+    _collect.dataSource = self;
     
-    collect.backgroundColor = [UIColor whiteColor];
+    _collect.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:collect];
+    [self.view addSubview:_collect];
     
-    [collect registerNib:[UINib nibWithNibName:@"SelectCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
+    [_collect registerNib:[UINib nibWithNibName:@"SelectCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     
     
 }
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -72,8 +74,19 @@
 {
     SelectCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
+    NSString *s = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    cell.imageV.image = [UIImage imageNamed:s];
     
-    cell.backgroundColor = [UIColor yellowColor];
+    cell.title.text = _dataArray[indexPath.row];
+    
+    
+    UIView *v = [cell viewWithTag:100];
+    if (indexPath.row % 2 == 1) {
+        v.hidden = YES;
+    }else
+    {
+        v.hidden = NO;
+    }
     
     return cell;
 }

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestTypeViewController">
             <connections>
+                <outlet property="table" destination="S84-y5-ZJC" id="MUp-gn-VfU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,17 +31,33 @@
                         <outlet property="delegate" destination="-1" id="9g5-pz-Bs4"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zh0-My-JXs">
+                    <rect key="frame" x="0.0" y="114" width="600" height="15"/>
+                    <color key="backgroundColor" white="0.92216435185185186" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="lHE-oY-1eg"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="0.89322916666666663" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="WPT-Pk-jF4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3fI-Wc-9yl"/>
+                <constraint firstItem="S84-y5-ZJC" firstAttribute="top" secondItem="Zh0-My-JXs" secondAttribute="bottom" id="Cca-8O-BOw"/>
+                <constraint firstItem="Zh0-My-JXs" firstAttribute="top" secondItem="WPT-Pk-jF4" secondAttribute="bottom" id="OWf-MJ-evd"/>
+                <constraint firstItem="Zh0-My-JXs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VKb-6L-te4"/>
                 <constraint firstAttribute="bottom" secondItem="S84-y5-ZJC" secondAttribute="bottom" id="YY9-Pn-Mgo"/>
                 <constraint firstItem="S84-y5-ZJC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Znd-5B-fSJ"/>
                 <constraint firstItem="WPT-Pk-jF4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="e0U-ik-llA"/>
                 <constraint firstAttribute="trailing" secondItem="S84-y5-ZJC" secondAttribute="trailing" id="fBN-uB-iZB"/>
                 <constraint firstAttribute="trailing" secondItem="WPT-Pk-jF4" secondAttribute="trailing" id="rR6-56-976"/>
                 <constraint firstItem="S84-y5-ZJC" firstAttribute="top" secondItem="WPT-Pk-jF4" secondAttribute="bottom" constant="15" id="shy-vJ-wPi"/>
+                <constraint firstAttribute="trailing" secondItem="Zh0-My-JXs" secondAttribute="trailing" id="t6k-mn-Ph8"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="shy-vJ-wPi"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>

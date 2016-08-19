@@ -35,7 +35,7 @@
 -(void)setContentWithQuestion:(QuestionModel*)question
 {
     self.question = question;
-    self.questionTitle.text = question.title;
+    self.questionTitle.text = question.question;
     [_answerBorad setViewLayoutWithQuestion:question];
     
     //刷新answerView的高度

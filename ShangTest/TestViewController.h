@@ -20,4 +20,6 @@ typedef NS_ENUM(NSInteger,TestType)
 
 @property(nonatomic,assign)TestType testType;
 
+@property(nonatomic,strong)NSString *suite_code;
+
 @end

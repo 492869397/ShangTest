@@ -36,6 +36,20 @@
 		BFB3F5521D644FD60004C94B /* TestTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5501D644FD60004C94B /* TestTypeViewController.xib */; };
 		BFB3F5561D6451FB0004C94B /* TestTypeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFB3F5541D6451FB0004C94B /* TestTypeTableViewCell.m */; };
 		BFB3F5571D6451FB0004C94B /* TestTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5551D6451FB0004C94B /* TestTypeTableViewCell.xib */; };
+		BFB3F5741D654A230004C94B /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F56A1D654A230004C94B /* 1.png */; };
+		BFB3F5751D654A230004C94B /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F56B1D654A230004C94B /* 2.png */; };
+		BFB3F5761D654A230004C94B /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F56C1D654A230004C94B /* 3.png */; };
+		BFB3F5771D654A230004C94B /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F56D1D654A230004C94B /* 4.png */; };
+		BFB3F5781D654A230004C94B /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F56E1D654A230004C94B /* 5.png */; };
+		BFB3F5791D654A230004C94B /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F56F1D654A230004C94B /* 6.png */; };
+		BFB3F57A1D654A230004C94B /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5701D654A230004C94B /* 7.png */; };
+		BFB3F57B1D654A230004C94B /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5711D654A230004C94B /* 8.png */; };
+		BFB3F57C1D654A230004C94B /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5721D654A230004C94B /* 9.png */; };
+		BFB3F57D1D654A230004C94B /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = BFB3F5731D654A230004C94B /* 10.png */; };
+		BFD280881D658B2D007D20C0 /* MJExtension in Resources */ = {isa = PBXBuildFile; fileRef = BFD280871D658B2D007D20C0 /* MJExtension */; };
+		BFD2808B1D658BCF007D20C0 /* ModuleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD2808A1D658BCF007D20C0 /* ModuleModel.m */; };
+		BFD2808E1D65912B007D20C0 /* SuiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD2808D1D65912B007D20C0 /* SuiteModel.m */; };
+		BFD280911D65B5F0007D20C0 /* OptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD280901D65B5F0007D20C0 /* OptionModel.m */; };
 		BFDC9C081D5B0AE500D57616 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9C071D5B0AE500D57616 /* QuestionModel.m */; };
 		BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */; };
 		BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */; };
@@ -111,6 +125,23 @@
 		BFB3F5531D6451FB0004C94B /* TestTypeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTypeTableViewCell.h; sourceTree = "<group>"; };
 		BFB3F5541D6451FB0004C94B /* TestTypeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTypeTableViewCell.m; sourceTree = "<group>"; };
 		BFB3F5551D6451FB0004C94B /* TestTypeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTypeTableViewCell.xib; sourceTree = "<group>"; };
+		BFB3F56A1D654A230004C94B /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		BFB3F56B1D654A230004C94B /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		BFB3F56C1D654A230004C94B /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
+		BFB3F56D1D654A230004C94B /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		BFB3F56E1D654A230004C94B /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		BFB3F56F1D654A230004C94B /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
+		BFB3F5701D654A230004C94B /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
+		BFB3F5711D654A230004C94B /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
+		BFB3F5721D654A230004C94B /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
+		BFB3F5731D654A230004C94B /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		BFD280871D658B2D007D20C0 /* MJExtension */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MJExtension; sourceTree = "<group>"; };
+		BFD280891D658BCF007D20C0 /* ModuleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModuleModel.h; sourceTree = "<group>"; };
+		BFD2808A1D658BCF007D20C0 /* ModuleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModuleModel.m; sourceTree = "<group>"; };
+		BFD2808C1D65912B007D20C0 /* SuiteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuiteModel.h; sourceTree = "<group>"; };
+		BFD2808D1D65912B007D20C0 /* SuiteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuiteModel.m; sourceTree = "<group>"; };
+		BFD2808F1D65B5F0007D20C0 /* OptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionModel.h; sourceTree = "<group>"; };
+		BFD280901D65B5F0007D20C0 /* OptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionModel.m; sourceTree = "<group>"; };
 		BFDC9C061D5B0AE500D57616 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
 		BFDC9C071D5B0AE500D57616 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
 		BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMainView.xib; sourceTree = "<group>"; };
@@ -197,6 +228,7 @@
 				BFA4EF631D61AD0D00A66D15 /* 报名 */,
 				BFA098741D6153BD0032445E /* 学习 */,
 				BFA4EF641D61AD8100A66D15 /* Model */,
+				BFB3F5591D6543080004C94B /* image */,
 				BF749CC61D59AD7E00D22B6B /* Assets.xcassets */,
 				BF711BCD1D62A8E5003E00C5 /* LaunchScreen.xib */,
 				BF749CCB1D59AD7E00D22B6B /* Info.plist */,
@@ -238,6 +270,7 @@
 		BF749CF01D59AFEE00D22B6B /* Third Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFD280871D658B2D007D20C0 /* MJExtension */,
 			);
 			name = "Third Frameworks";
 			sourceTree = "<group>";
@@ -289,9 +322,15 @@
 		BFA4EF641D61AD8100A66D15 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF790C8B1D62C55B006CE990 /* Question.xcdatamodeld */,
+				BFD280891D658BCF007D20C0 /* ModuleModel.h */,
+				BFD2808A1D658BCF007D20C0 /* ModuleModel.m */,
+				BFD2808C1D65912B007D20C0 /* SuiteModel.h */,
+				BFD2808D1D65912B007D20C0 /* SuiteModel.m */,
 				BFDC9C061D5B0AE500D57616 /* QuestionModel.h */,
 				BFDC9C071D5B0AE500D57616 /* QuestionModel.m */,
-				BF790C8B1D62C55B006CE990 /* Question.xcdatamodeld */,
+				BFD2808F1D65B5F0007D20C0 /* OptionModel.h */,
+				BFD280901D65B5F0007D20C0 /* OptionModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -306,6 +345,23 @@
 				BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */,
 			);
 			name = "答题页面";
+			sourceTree = "<group>";
+		};
+		BFB3F5591D6543080004C94B /* image */ = {
+			isa = PBXGroup;
+			children = (
+				BFB3F56A1D654A230004C94B /* 1.png */,
+				BFB3F56B1D654A230004C94B /* 2.png */,
+				BFB3F56C1D654A230004C94B /* 3.png */,
+				BFB3F56D1D654A230004C94B /* 4.png */,
+				BFB3F56E1D654A230004C94B /* 5.png */,
+				BFB3F56F1D654A230004C94B /* 6.png */,
+				BFB3F5701D654A230004C94B /* 7.png */,
+				BFB3F5711D654A230004C94B /* 8.png */,
+				BFB3F5721D654A230004C94B /* 9.png */,
+				BFB3F5731D654A230004C94B /* 10.png */,
+			);
+			name = image;
 			sourceTree = "<group>";
 		};
 		BFDC9C0D1D5B106A00D57616 /* Frameworks */ = {
@@ -423,14 +479,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB3F57B1D654A230004C94B /* 8.png in Resources */,
+				BFB3F5751D654A230004C94B /* 2.png in Resources */,
+				BFB3F5771D654A230004C94B /* 4.png in Resources */,
+				BFB3F5791D654A230004C94B /* 6.png in Resources */,
 				BF711BD31D62ACA0003E00C5 /* SchoolTableViewCell.xib in Resources */,
 				BF711BD81D62B0D4003E00C5 /* SchoolDetailViewController.xib in Resources */,
 				BFB3F5521D644FD60004C94B /* TestTypeViewController.xib in Resources */,
 				BFB3F5571D6451FB0004C94B /* TestTypeTableViewCell.xib in Resources */,
 				BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */,
 				BF749CC71D59AD7E00D22B6B /* Assets.xcassets in Resources */,
+				BFB3F57C1D654A230004C94B /* 9.png in Resources */,
+				BFD280881D658B2D007D20C0 /* MJExtension in Resources */,
+				BFB3F5761D654A230004C94B /* 3.png in Resources */,
+				BFB3F57D1D654A230004C94B /* 10.png in Resources */,
 				BFA1ACB91D641AED0010E3D2 /* SelectCollectionViewCell.xib in Resources */,
+				BFB3F5741D654A230004C94B /* 1.png in Resources */,
 				BFB3F54D1D643BAA0004C94B /* SecondSelectTableViewCell.xib in Resources */,
+				BFB3F5781D654A230004C94B /* 5.png in Resources */,
+				BFB3F57A1D654A230004C94B /* 7.png in Resources */,
 				BF790C8A1D62B73E006CE990 /* SchoolDetailTableViewCell.xib in Resources */,
 				BF711BCE1D62A8E5003E00C5 /* LaunchScreen.xib in Resources */,
 			);
@@ -508,6 +575,8 @@
 				BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */,
 				BF711BD21D62ACA0003E00C5 /* SchoolTableViewCell.m in Sources */,
 				BF790C901D630AC2006CE990 /* InitModel.m in Sources */,
+				BFD2808B1D658BCF007D20C0 /* ModuleModel.m in Sources */,
+				BFD280911D65B5F0007D20C0 /* OptionModel.m in Sources */,
 				BF749CEF1D59AEEA00D22B6B /* SelectViewController.m in Sources */,
 				BF749CBF1D59AD7D00D22B6B /* AppDelegate.m in Sources */,
 				BF749CF91D59B3C900D22B6B /* SecondSelectViewController.m in Sources */,
@@ -518,6 +587,7 @@
 				BFB3F54C1D643BAA0004C94B /* SecondSelectTableViewCell.m in Sources */,
 				BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */,
 				BF749CBC1D59AD7D00D22B6B /* main.m in Sources */,
+				BFD2808E1D65912B007D20C0 /* SuiteModel.m in Sources */,
 				BFA1ACB81D641AED0010E3D2 /* SelectCollectionViewCell.m in Sources */,
 				BFB3F5511D644FD60004C94B /* TestTypeViewController.m in Sources */,
 				BFA0987B1D6170500032445E /* ApplyViewController.m in Sources */,

@@ -36,7 +36,64 @@
     self.dataArray = [NSMutableArray array];
     self.currentIndex = 0;
     
+    [self getDataFromNet];
+    
     [self initViewLayout];
+}
+
+-(void)getDataFromNet
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSMutableDictionary *pass = [NSMutableDictionary dictionary];
+    [pass setObject:_suite_code forKey:@"suite_code"];
+    int n;
+    switch (_testType) {
+        case 1:
+            n = 15;
+            break;
+        case 2:
+            n = 30;
+            break;
+        case 3:
+            n = 60;
+            break;
+        case 4:
+            n = 0;
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    NSNumber *number;
+    if (n != 0) {
+        number = [NSNumber numberWithInt:n];
+        [pass setObject:number forKey:@"number"];
+    }else
+    {
+#pragma -mark 顺序做题怎么操作，不知道
+    }
+    
+    [pass setObject:@1 forKey:@"page"];
+    [pass setObject:number forKey:@"rows"];
+    
+    [manager POST:@"http://123.57.28.11:8080/sxt_studentsystem/selectTQuestion.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSArray *arr = responseObject[@"result"];
+        [_dataArray removeAllObjects];
+        
+        for (NSDictionary *dic in arr) {
+            QuestionModel *q = [QuestionModel creatQuestionWithDict:dic];
+            [_dataArray addObject:q];
+        }
+        
+        [self setInfoByCurrentIndex:_currentIndex];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 -(void)initViewLayout
@@ -54,16 +111,6 @@
     
     [self.view addSubview:_scroll];
     
-    //测试代码，需删除
-    
-    for (int i = 0 ; i < 5; i++) {
-        QuestionModel *q = [[QuestionModel alloc]init];
-        NSString *s = [NSString stringWithFormat:@"%d.随便自己嘴边写的题目，反正你们也看不懂我也看不懂，答案自己蒙一个，我是不会告诉你的",i];
-        q.title = s;
-        q.key = @"B";
-        q.answerArray = @[@"错误还是正确？",@"正确还是错误",@"上一堆乱码ffxxkggkaklsdfasklasdfasdfasdfasdfasdfads知道了吗",@"并不知道",@"自己猜"];
-        [_dataArray addObject:q];
-    }
     
     self.leftView =[[[NSBundle mainBundle] loadNibNamed:@"TestMainView" owner:nil options:nil] lastObject];
     self.centerView =[[[NSBundle mainBundle] loadNibNamed:@"TestMainView" owner:nil options:nil] lastObject];
@@ -73,17 +120,10 @@
     self.rightView.frame =CGRectMake(SCREEN_WIDTH*2, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64);
     
     
-    
-//    self.leftView =[[TestMainView alloc]initWithFrame:CGRectMake(0, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64)];
     [_scroll addSubview:_leftView];
-    
-//    self.centerView =[[TestMainView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64)];
     [_scroll addSubview:_centerView];
-    
-//    self.rightView =[[TestMainView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64)];
     [_scroll addSubview:_rightView];
     
-    [self setInfoByCurrentIndex:_currentIndex];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,6 +149,7 @@
         _currentIndex = (_currentIndex - 1 + _dataArray.count) % _dataArray.count;
      }
 
+    
     [self setInfoByCurrentIndex:_currentIndex];
 }
 

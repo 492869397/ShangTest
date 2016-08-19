@@ -10,10 +10,13 @@
 
 @interface QuestionModel : NSObject
 
-@property (nonatomic,strong)NSString *title;
+@property (nonatomic,strong)NSString *question;
 
-@property (nonatomic,strong)NSString *key;
+@property (nonatomic,strong)NSString *option_code ;
 
-@property (nonatomic,strong)NSArray *answerArray;
+@property (nonatomic,strong)NSMutableArray *answerArray;
+
++(instancetype)creatQuestionWithDict:(NSDictionary*)dict;
+
 
 @end

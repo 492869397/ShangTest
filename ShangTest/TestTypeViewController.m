@@ -8,10 +8,16 @@
 
 #import "TestTypeViewController.h"
 #import "TestTypeTableViewCell.h"
+#import "SuiteModel.h"
+
+
+
+#define LINK_SUITE @"http://123.57.28.11:8080/sxt_studentsystem/selectTSuite.do"
 
 @interface TestTypeViewController ()
 
 @property(nonatomic,strong)NSMutableArray *dataArray;
+@property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end
 
@@ -19,8 +25,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.dataArray = [NSMutableArray array];
+    
+    [self getDataFromNet];
+    
 }
+
+-(void)getDataFromNet
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSDictionary *pass = [NSDictionary dictionaryWithObjectsAndKeys:_module_code,@"module_code", nil];
+    
+    [manager POST:LINK_SUITE parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSArray *arr = responseObject[@"result"];
+        
+        [_dataArray removeAllObjects];
+        
+        for (NSDictionary *dic in arr) {
+            SuiteModel *s = [SuiteModel creatSuiteWithDict:dic];
+            [_dataArray addObject:s];
+        }
+        
+        [_table reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -34,7 +67,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _dataArray.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -48,6 +81,10 @@
     
     cell.delegate = self;
     
+    cell.number.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
+    
+    SuiteModel *suite = _dataArray[indexPath.row];
+    cell.suite = suite;
     
     return  cell;
 }

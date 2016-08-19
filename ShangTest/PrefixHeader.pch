@@ -26,6 +26,8 @@
 
 #import <Masonry.h>
 
+#import "MJExtension/MJExtension.h"
+
 #define MR_SHORTHAND
 
 #import <MagicalRecord/MagicalRecord.h>

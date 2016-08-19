@@ -10,9 +10,17 @@
 #import "SecondSelectTableViewCell.h"
 #import "TestTypeViewController.h"
 
+#import "ModuleModel.h"
+
+
+
+#define LINK_MODULE @"http://123.57.28.11:8080/sxt_studentsystem/selectTModule.do"
+
 @interface SecondSelectViewController ()
 
 @property(strong,nonatomic)NSMutableArray *array;
+
+@property(strong,nonatomic)UITableView *table;
 
 @end
 
@@ -21,23 +29,50 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.array = [NSMutableArray arrayWithObjects:@"javaScript",@"jsp",@"jQuery", nil];
+    self.array = [NSMutableArray array];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self getDataFromNet];
     
     [self initViewLayout];
 }
 
 -(void)initViewLayout
 {
-    UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
-    table.delegate = self;
-    table.dataSource = self;
-//    [table flashScrollIndicators];
+    self.table = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
+    _table.delegate = self;
+    _table.dataSource = self;
     
-    [self.view addSubview:table];
+    _table.rowHeight = 70;
+    
+    [self.view addSubview:_table];
     
 }
+
+-(void)getDataFromNet
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager POST:LINK_MODULE parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSArray *arr = responseObject[@"result"];
+        
+        [self.array removeAllObjects];
+        
+        for (NSDictionary *dic in arr) {
+            ModuleModel *m = [ModuleModel creatModuleWithDict:dic];
+            [_array addObject:m];
+        }
+        
+        
+        
+        
+        [_table reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -64,8 +99,10 @@
         cell = [[[NSBundle mainBundle]loadNibNamed:@"SecondSelectTableViewCell" owner:nil options:nil]firstObject];
     }
     
+    
+    ModuleModel *module = _array[indexPath.row];
+    cell.module = module;
     cell.number.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
-    cell.title.text = _array[indexPath.row];
     
     return  cell;
 }
@@ -75,6 +112,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     TestTypeViewController *test = [[TestTypeViewController alloc]init];
+    ModuleModel *m = _array[indexPath.row];
+    test.module_code = m.module_code;
+    
     [self.navigationController pushViewController:test animated:YES];
 }
 

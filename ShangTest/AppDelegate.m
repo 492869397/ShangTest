@@ -24,15 +24,20 @@
     [self initMagicRecord];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    SelectViewController *select = [[SelectViewController alloc]init];
-    select.title = @"答题";
     
     ApplyViewController *apply = [[ApplyViewController alloc]init];
-    apply.title = @"报名";
+    apply.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"报名" image:nil selectedImage:nil];
+    
+    
+    SelectViewController *select = [[SelectViewController alloc]init];
+    select.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"答题" image:nil selectedImage:nil];
+    
+    
     
     UITabBarController *tab = [[UITabBarController alloc]init];
-    
+    tab.tabBar.backgroundColor = [UIColor redColor];
     tab.viewControllers = @[apply,select];
+    
     
     RootNavigationController *nav = [[RootNavigationController alloc]initWithRootViewController:tab];
     
@@ -46,12 +51,12 @@
 
 -(void)initMagicRecord
 {
-    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Model.sqlite"];
-    
-    //判断是否需要从网络获取数据
-//    if () {
-    [self getModelDataFromNet];
-//    }
+//    [MagicalRecord setupCoreDataStackWithStoreNamed:@"Model.sqlite"];
+//    
+//    //判断是否需要从网络获取数据
+////    if () {
+//    [self getModelDataFromNet];
+////    }
 }
 
 -(void)getModelDataFromNet

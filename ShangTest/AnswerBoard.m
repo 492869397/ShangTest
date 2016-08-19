@@ -8,6 +8,7 @@
 
 #import "AnswerBoard.h"
 #import "TestMainView.h"
+#import "OptionModel.h"
 
 @interface SingleAnswerView : UIView
 
@@ -52,9 +53,9 @@
     }
     
     //序号
-    self.key = [NSString stringWithFormat:@"%c",'A'+i];
-    _sequenceNumber.text = _key;
+    _sequenceNumber.text = [NSString stringWithFormat:@"%c",'A'+i];
     
+    self.key = answer;
     
     //答案内容
     _answerContent.text = answer;
@@ -138,8 +139,8 @@
     for (int i = 0; i < _question.answerArray.count; i++) {
         SingleAnswerView *singleAnswerView = [[SingleAnswerView alloc]init];
         
-        //如果answerArray存的直接是答案的字符串，则可以用这段代码
-        NSString *answer = _question.answerArray[i];
+        OptionModel *op = _question.answerArray[i];
+        NSString *answer = op.title;
         
         [singleAnswerView setViewLayoutWithAnswers:answer andIndex:i andOriginY:_height];
         [self addSubview:singleAnswerView];
@@ -165,7 +166,7 @@
 -(void)selectAnswer:(UITapGestureRecognizer*)tap
 {
     SingleAnswerView* answerView = (SingleAnswerView*)tap.view;
-    if ([answerView.key isEqualToString:_question.key]) {
+    if ([answerView.key isEqualToString:_question.option_code]) {
         [answerView showResult:YES];
         
 #pragma mark ******* 添加进入下一题的代码
@@ -174,7 +175,7 @@
     {
         [answerView showResult:NO];
         for (SingleAnswerView* ansView in _singleAnswerArray) {
-            if ([ansView.key isEqualToString:_question.key]) {
+            if ([ansView.key isEqualToString:_question.option_code]) {
                 [ansView showResult:YES];
             }
         }

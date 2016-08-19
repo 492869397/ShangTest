@@ -12,13 +12,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelasgdsdfsdfgdsg" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrN-0J-UAS">
-                    <rect key="frame" x="8" y="70" width="381" height="21"/>
+                    <rect key="frame" x="8" y="20" width="381" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82W-zf-nC7" customClass="AnswerBoard">
-                    <rect key="frame" x="0.0" y="126" width="397" height="128"/>
+                    <rect key="frame" x="0.0" y="66" width="397" height="128"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="128" id="JDJ-9r-DuN"/>
                     </constraints>
@@ -26,12 +26,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KrN-0J-UAS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="5GG-Rf-nyj"/>
+                <constraint firstItem="KrN-0J-UAS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="5GG-Rf-nyj"/>
                 <constraint firstItem="82W-zf-nC7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6zi-xj-WxY"/>
                 <constraint firstAttribute="trailing" secondItem="KrN-0J-UAS" secondAttribute="trailing" constant="8" id="K3j-Kt-BaS"/>
                 <constraint firstAttribute="trailing" secondItem="82W-zf-nC7" secondAttribute="trailing" id="NeS-Po-esP"/>
                 <constraint firstItem="KrN-0J-UAS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="cFD-N5-I13"/>
-                <constraint firstItem="82W-zf-nC7" firstAttribute="top" secondItem="KrN-0J-UAS" secondAttribute="bottom" constant="35" id="cL4-MZ-meq"/>
+                <constraint firstItem="82W-zf-nC7" firstAttribute="top" secondItem="KrN-0J-UAS" secondAttribute="bottom" constant="25" id="cL4-MZ-meq"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

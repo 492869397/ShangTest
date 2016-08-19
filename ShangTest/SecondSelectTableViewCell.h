@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ModuleModel.h"
+
 
 @interface SecondSelectTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *count;
-
-@property (weak, nonatomic) IBOutlet UILabel *title;
+@property(nonatomic,strong)ModuleModel *module;
 
 @property (weak, nonatomic) IBOutlet UILabel *number;
 

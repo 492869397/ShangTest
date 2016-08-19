@@ -10,5 +10,6 @@
 
 @interface TestTypeViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
+@property(nonatomic,strong)NSString *module_code;
 
 @end
