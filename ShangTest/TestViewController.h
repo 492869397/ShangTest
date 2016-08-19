@@ -22,4 +22,7 @@ typedef NS_ENUM(NSInteger,TestType)
 
 @property(nonatomic,strong)NSString *suite_code;
 
+
+@property(strong,nonatomic)UIScrollView *centerScroll;
+
 @end

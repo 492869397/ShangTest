@@ -12,6 +12,9 @@
 
 @interface SingleAnswerView : UIView
 
+//代理
+@property(weak,nonatomic)AnswerBoard *answer;
+
 @property(strong,nonatomic)NSString *key;
 
 @property(strong,nonatomic)UILabel *sequenceNumber;
@@ -20,7 +23,7 @@
 
 -(void)showResult:(BOOL)result;
 
--(void)setViewLayoutWithAnswers:(NSString*)answer andIndex:(int)i andOriginY:(float)originY;
+-(void)setViewLayoutWithAnswers:(NSString*)answer withOptionCode:(NSString*)option_code andIndex:(int)i andOriginY:(float)originY;
 
 @end
 
@@ -46,7 +49,7 @@
     return self;
 }
 
--(void)setViewLayoutWithAnswers:(NSString*)answer andIndex:(int)i andOriginY:(float)originY
+-(void)setViewLayoutWithAnswers:(NSString*)answer withOptionCode:(NSString*)option_code andIndex:(int)i andOriginY:(float)originY
 {
     if (i % 2 == 0) {
         self.backgroundColor = [UIColor lightGrayColor];
@@ -55,7 +58,7 @@
     //序号
     _sequenceNumber.text = [NSString stringWithFormat:@"%c",'A'+i];
     
-    self.key = answer;
+    self.key = option_code;
     
     //答案内容
     _answerContent.text = answer;
@@ -109,6 +112,8 @@
 
 @property(nonatomic,strong)NSMutableArray *singleAnswerArray;
 
+@property(nonatomic,strong)UIScrollView *scroll;
+
 @end
 
 @implementation AnswerBoard
@@ -116,12 +121,15 @@
 -(void)willMoveToSuperview:(UIView *)newSuperview
 {
     self.singleAnswerArray = [NSMutableArray array];
+    
 }
 
 
 
--(void)setViewLayoutWithQuestion:(QuestionModel*)question
+-(void)setViewLayoutWithQuestion:(QuestionModel*)question withDelegate:(TestMainView*)delegate
 {
+    self.delegate = delegate;
+    
     self.question = question;
     
     _height = 0;
@@ -141,8 +149,9 @@
         
         OptionModel *op = _question.answerArray[i];
         NSString *answer = op.title;
+        NSString *option = op.option_code;
         
-        [singleAnswerView setViewLayoutWithAnswers:answer andIndex:i andOriginY:_height];
+        [singleAnswerView setViewLayoutWithAnswers:answer withOptionCode:option andIndex:i andOriginY:_height];
         [self addSubview:singleAnswerView];
         
         
@@ -166,18 +175,30 @@
 -(void)selectAnswer:(UITapGestureRecognizer*)tap
 {
     SingleAnswerView* answerView = (SingleAnswerView*)tap.view;
-    if ([answerView.key isEqualToString:_question.option_code]) {
-        [answerView showResult:YES];
-        
-#pragma mark ******* 添加进入下一题的代码
-        
-    }else
-    {
-        [answerView showResult:NO];
-        for (SingleAnswerView* ansView in _singleAnswerArray) {
+    
+    NSString *s = [NSString stringWithString:answerView.key];
+    [_delegate.selectArray replaceObjectAtIndex:_delegate.index withObject:s];
+    
+    [self selectOption:s];
+    
+}
+
+
+-(void)selectOption:(NSString*)option
+{
+    for (SingleAnswerView* ansView in _singleAnswerArray) {
+        if ([option isEqualToString:ansView.key]) {
+            
             if ([ansView.key isEqualToString:_question.option_code]) {
                 [ansView showResult:YES];
+            }else
+            {
+                [ansView showResult:NO];
             }
+            
+        }
+        if ([ansView.key isEqualToString:_question.option_code]) {
+            [ansView showResult:YES];
         }
     }
 }

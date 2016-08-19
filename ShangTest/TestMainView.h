@@ -7,10 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TestViewController.h"
 #import "QuestionModel.h"
 
 @interface TestMainView : UIView
 
--(void)setContentWithQuestion:(QuestionModel*)question;
+@property(nonatomic,weak)TestViewController *delegate;
+
+@property(nonatomic,assign)NSInteger index;
+
+@property(nonatomic,weak)NSMutableArray *selectArray;
+
+-(void)setContentWithQuestion:(QuestionModel*)question withIndex:(NSInteger)index;
+
+-(void)selectOption:(NSString*)option;
 
 @end
