@@ -7,9 +7,8 @@
 //
 
 #import "TestViewController.h"
-#import "TestMainView.h"
 #import "QuestionModel.h"
-
+#import "TestMainView.h"
 
 typedef NS_ENUM(NSInteger,SelectCode)
 {
@@ -20,7 +19,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 @interface TestViewController ()
 
-@property(strong,nonatomic)NSMutableArray *dataArray;
 
 //选择的选项数组
 @property(strong,nonatomic)NSMutableArray *selectArray;
@@ -30,16 +28,10 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 @property(strong,nonatomic)UIScrollView *scroll;
 
-@property(strong,nonatomic)TestMainView *leftView;
-@property(strong,nonatomic)UIScrollView *leftScroll;
-
-@property(strong,nonatomic)TestMainView *centerView;
 
 
-@property(strong,nonatomic)TestMainView *rightView;
-@property(strong,nonatomic)UIScrollView *rightScroll;
 
-@property(assign,nonatomic)NSInteger currentIndex;
+@property(assign,nonatomic)NSInteger leftIndex;
 
 @end
 
@@ -54,11 +46,13 @@ typedef NS_ENUM(NSInteger,SelectCode)
     self.selectArray = [NSMutableArray array];
     self.correctArray = [NSMutableArray array];
     
-    self.currentIndex = 0;
+    _displayIndex = 0;
+    _leftIndex = 0;
+    
+    [self initViewLayout];
     
     [self getDataFromNet];
     
-    [self initViewLayout];
 }
 
 -(void)getDataFromNet
@@ -104,6 +98,7 @@ typedef NS_ENUM(NSInteger,SelectCode)
         NSArray *arr = responseObject[@"result"];
         [_dataArray removeAllObjects];
         [_selectArray removeAllObjects];
+        _displayIndex = 0 ;
         
         for (NSDictionary *dic in arr) {
             QuestionModel *q = [QuestionModel creatQuestionWithDict:dic];
@@ -118,7 +113,7 @@ typedef NS_ENUM(NSInteger,SelectCode)
             
         }
         
-        [self setInfoByCurrentIndex:_currentIndex];
+        [self setInfoByCurrentIndex:_displayIndex];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -166,31 +161,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
     [_scroll addSubview:_rightScroll];
 
     
-//    [_leftView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.equalTo(_leftView.superview);
-//        
-//    }];
-//    
-//    [_leftScroll mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.mas_equalTo(self.view);
-//        
-//        // 让scrollview的contentSize随着内容的增多而变化
-//        make.bottom.mas_equalTo(_leftView.mas_bottom);
-//    }];
-//    
-//    [_centerView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.left.right.equalTo(_centerView.superview);
-//        
-//    }];
-//    
-//    [_centerScroll mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.edges.mas_equalTo(self.view);
-//        
-//        // 让scrollview的contentSize随着内容的增多而变化
-//        make.bottom.mas_equalTo(_centerView.mas_bottom);
-//    }];
-
-    
     
     
 }
@@ -201,60 +171,88 @@ typedef NS_ENUM(NSInteger,SelectCode)
 }
 
 #pragma mark - UIScrollViewDelegate
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollVie
-{
-    [self reloadImage];
 
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+    [self reloadImage];
+    
+    [self setInfoByCurrentIndex:_displayIndex];
+    
     _scroll.contentOffset = CGPointMake(SCREEN_WIDTH, 0.0);
     
 
 }
 
 - (void)reloadImage {
-    CGPoint contentOffset = [_scroll contentOffset];
-    if (contentOffset.x > SCREEN_WIDTH) { //向左滑动
-        _currentIndex = (_currentIndex + 1) % _dataArray.count;
-     } else if (contentOffset.x < SCREEN_WIDTH) { //向右滑动
-        _currentIndex = (_currentIndex - 1 + _dataArray.count) % _dataArray.count;
-     }
-
     
-    [self setInfoByCurrentIndex:_currentIndex];
+    CGPoint contentOffset = [_scroll contentOffset];
+    
+    NSInteger centerIndex = _displayIndex  ;
+    
+    if (contentOffset.x > SCREEN_WIDTH) { //向左滑动
+        
+        centerIndex = _displayIndex +1;
+        
+     } else if (contentOffset.x < SCREEN_WIDTH) { //向右滑动
+        centerIndex = _displayIndex - 1;
+    }
+
+    if (centerIndex < 0 ) {
+        _displayIndex = 0;
+    }else if(centerIndex > _dataArray.count - 1 )
+    {
+        _displayIndex = _dataArray.count-1;
+        
+    }else
+    {
+        _displayIndex = centerIndex;
+    }
+    NSLog(@"%ld",_displayIndex);
+    
 }
 
 
 - (void)setInfoByCurrentIndex:(NSInteger)currentIndex {
     
-    QuestionModel *ques = _dataArray[currentIndex];
+    NSInteger leftIndex = currentIndex - 1;
+    if (currentIndex == 0) {
+        leftIndex = 0;
+    }
+    
+    QuestionModel *ques = _dataArray[leftIndex];
+    [_leftView setContentWithQuestion:ques withIndex:leftIndex];
+    
+    _leftView.selectArray = self.selectArray;
+    
+    if (![_selectArray[leftIndex] isEqualToString:@""]) {
+        [_leftView selectOption:_selectArray[(currentIndex - 1 + _dataArray.count)%_dataArray.count]];
+    }
+   
+    
+    NSInteger rightIndex = currentIndex+1;
+    if (currentIndex >= _dataArray.count - 1) {
+        rightIndex = _dataArray.count - 1;
+    }
+    ques = _dataArray[rightIndex];
+    [_rightView setContentWithQuestion:ques withIndex:rightIndex];
+    
+    _rightView.selectArray = self.selectArray;
+    
+    if (![_selectArray[rightIndex] isEqualToString:@""]) {
+        [_rightView selectOption:_selectArray[rightIndex]];
+    }
+    
+    
+    
+    ques = _dataArray[currentIndex];
     [_centerView setContentWithQuestion:ques withIndex:currentIndex];
     
     _centerView.selectArray = self.selectArray;
     
     if (![_selectArray[currentIndex] isEqualToString:@""]) {
         [_centerView selectOption:_selectArray[currentIndex]];
-    }
-    
-    
-    
-    
-    ques = _dataArray[(currentIndex - 1 + _dataArray.count)%_dataArray.count];
-    [_leftView setContentWithQuestion:ques withIndex:(currentIndex - 1 + _dataArray.count)%_dataArray.count];
-    
-    _leftView.selectArray = self.selectArray;
-    
-    if (![_selectArray[(currentIndex - 1 + _dataArray.count)%_dataArray.count] isEqualToString:@""]) {
-        [_leftView selectOption:_selectArray[(currentIndex - 1 + _dataArray.count)%_dataArray.count]];
-    }
-   
-    
-    
-    ques = _dataArray[(currentIndex+1)%_dataArray.count];
-    [_rightView setContentWithQuestion:ques withIndex:(currentIndex+1)%_dataArray.count];
-    
-    _rightView.selectArray = self.selectArray;
-    
-    if (![_selectArray[(currentIndex+1)%_dataArray.count] isEqualToString:@""]) {
-        [_rightView selectOption:_selectArray[(currentIndex+1)%_dataArray.count]];
     }
 
 

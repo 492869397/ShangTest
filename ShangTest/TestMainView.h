@@ -10,7 +10,7 @@
 #import "TestViewController.h"
 #import "QuestionModel.h"
 
-@interface TestMainView : UIView
+@interface TestMainView : UIView<UIGestureRecognizerDelegate>
 
 @property(nonatomic,weak)TestViewController *delegate;
 
