@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TestResultViewController">
+            <connections>
+                <outlet property="buttonHeight" destination="SLc-7y-2O4" id="a1j-HD-lOk"/>
+                <outlet property="buttonView" destination="EVf-q2-nKw" id="UdH-nK-ZI8"/>
+                <outlet property="pieCharView" destination="GDM-j9-MmO" id="ZDd-9G-yaf"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本次练习含：0道题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5d-sl-D1t">
+                    <rect key="frame" x="15" y="70" width="147" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="答错0道" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WC-KJ-hkO">
+                    <rect key="frame" x="15" y="96" width="62" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVf-q2-nKw">
+                    <rect key="frame" x="10" y="215" width="580" height="90"/>
+                    <color key="backgroundColor" red="0.00161718412" green="0.78190768489999996" blue="0.0025090928600000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="SLc-7y-2O4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDM-j9-MmO" customClass="SHPieChartView">
+                    <rect key="frame" x="265" y="130" width="70" height="70"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="A1E-ig-v6w"/>
+                        <constraint firstAttribute="height" constant="70" id="TtQ-EE-2OA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="EVf-q2-nKw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="7SE-j7-Gho"/>
+                <constraint firstItem="GDM-j9-MmO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="130" id="8Ib-aR-1Ec"/>
+                <constraint firstItem="X5d-sl-D1t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="CJh-Q3-ltX"/>
+                <constraint firstAttribute="trailing" secondItem="EVf-q2-nKw" secondAttribute="trailing" constant="10" id="JNz-ed-mzp"/>
+                <constraint firstItem="GDM-j9-MmO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Oee-nX-ffk"/>
+                <constraint firstItem="X5d-sl-D1t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="WGL-Jl-flD"/>
+                <constraint firstItem="9WC-KJ-hkO" firstAttribute="leading" secondItem="X5d-sl-D1t" secondAttribute="leading" id="bhB-gJ-hDW"/>
+                <constraint firstItem="9WC-KJ-hkO" firstAttribute="top" secondItem="X5d-sl-D1t" secondAttribute="bottom" constant="5" id="cgM-sV-6vc"/>
+                <constraint firstItem="EVf-q2-nKw" firstAttribute="top" secondItem="GDM-j9-MmO" secondAttribute="bottom" constant="15" id="tBQ-yX-qQa"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

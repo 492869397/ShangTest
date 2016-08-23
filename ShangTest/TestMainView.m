@@ -9,6 +9,8 @@
 #import "TestMainView.h"
 #import "AnswerBoard.h"
 
+#import "TestResultViewController.h"
+
 
 @interface TestMainView()
 
@@ -65,6 +67,8 @@
         b.tag = 100;
         [self addSubview:b];
         hei = 60;
+        
+        [b addTarget:self action:@selector(enterNext:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     view.contentSize = CGSizeMake(SCREEN_WIDTH, _answerBorad.frame.origin.y + _answerBorad.height + hei);
@@ -72,7 +76,11 @@
 
 }
 
-
+-(void)enterNext:(UIButton *)button
+{
+    TestResultViewController *v = [[TestResultViewController alloc]init];
+    [_delegate.navigationController pushViewController:v animated:YES];
+}
 
 
 -(void)selectOption:(NSString*)option

@@ -33,9 +33,11 @@
 
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    [self initViewLayout];
+
+    
     [self getDataFromNet];
     
-    [self initViewLayout];
 }
 
 -(void)initViewLayout
@@ -52,8 +54,13 @@
 
 -(void)getDataFromNet
 {
+    [self showMessage:@"加载中..."];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager POST:LINK_MODULE parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        [self hiddenWaitHUD];
+        
         NSArray *arr = responseObject[@"result"];
         
         [self.array removeAllObjects];
@@ -69,7 +76,9 @@
         [_table reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self hiddenWaitHUD];
         
+        [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
     }];
 }
 

@@ -24,17 +24,26 @@ PODS:
     - MagicalRecord/Core (= 2.3.2)
   - MagicalRecord/Core (2.3.2)
   - Masonry (1.0.1)
+  - SDCycleScrollView (1.65):
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - MagicalRecord
   - Masonry
+  - SDCycleScrollView (~> 1.64)
+  - SDWebImage (~> 3.7.2)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: da983b393b64224dae45f7458d65987e0621ae10
+PODFILE CHECKSUM: 76a3f60b955ddba4f5e0a647f772536eb16ae82f
 
 COCOAPODS: 1.0.1

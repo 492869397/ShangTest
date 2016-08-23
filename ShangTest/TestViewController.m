@@ -10,6 +10,9 @@
 #import "QuestionModel.h"
 #import "TestMainView.h"
 
+#import "TestResultViewController.h"
+
+
 typedef NS_ENUM(NSInteger,SelectCode)
 {
     NoSelected = 1,
@@ -57,6 +60,8 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 -(void)getDataFromNet
 {
+    [self showMessage:@"加载中..."];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSMutableDictionary *pass = [NSMutableDictionary dictionary];
@@ -95,6 +100,8 @@ typedef NS_ENUM(NSInteger,SelectCode)
     
     [manager POST:@"http://123.57.28.11:8080/sxt_studentsystem/selectTQuestion.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
+        [self hiddenWaitHUD];
+        
         NSArray *arr = responseObject[@"result"];
         [_dataArray removeAllObjects];
         [_selectArray removeAllObjects];
@@ -116,7 +123,9 @@ typedef NS_ENUM(NSInteger,SelectCode)
         [self setInfoByCurrentIndex:_displayIndex];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [self hiddenWaitHUD];
+
+        [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
     }];
 }
 
@@ -160,8 +169,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
     [_scroll addSubview:_centerScroll];
     [_scroll addSubview:_rightScroll];
 
-    
-    
     
 }
 
@@ -254,7 +261,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
     if (![_selectArray[currentIndex] isEqualToString:@""]) {
         [_centerView selectOption:_selectArray[currentIndex]];
     }
-
 
 }
 

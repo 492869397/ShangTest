@@ -10,7 +10,6 @@
 #import "SelectViewController.h"
 #import "ApplyViewController.h"
 
-#import "InitModel.h"
 
 @interface AppDelegate ()
 
@@ -61,7 +60,7 @@
 
 -(void)getModelDataFromNet
 {
-    [InitModel setModel];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

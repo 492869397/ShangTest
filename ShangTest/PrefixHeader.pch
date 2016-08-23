@@ -33,4 +33,6 @@
 #import <MagicalRecord/MagicalRecord.h>
 
 
+#import "UIViewController+HUD.h"
+
 #endif

@@ -7,13 +7,23 @@
 //
 
 #import "UIViewController+HUD.h"
-#import "MBProgressHUD.h"
 
 @implementation UIViewController (HUD)
 
--(void)showWaitHUD
+-(void)showHUDWithMessage:(NSString*)message HiddenDelay:(NSTimeInterval)delay
 {
+    UIView *view;
+    if (self.view == nil)
+        view = [[UIApplication sharedApplication].windows lastObject];
+    else
+        view = self.view;
     
+ 
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+//    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.label.text = message;
+    
+    [hud hideAnimated:YES afterDelay:delay];
 }
 
 -(MBProgressHUD *)showMessage:(NSString *)message
@@ -24,23 +34,24 @@
     else
         view = self.view;
     
-    // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.tag = 1000;
     hud.label.text = message;
-    // 隐藏时候从父控件中移除
-    hud.removeFromSuperViewOnHide = YES;
-    // YES代表需要蒙版效果
-    hud.dimBackground = YES;
     return hud;
 }
 
 -(void)hiddenWaitHUD
 {
-    MBProgressHUD *hud = [self.view viewWithTag:1000];
-    if (hud) {
-        hud.hidden = YES;
-    }
+//    MBProgressHUD *hud = [self.view viewWithTag:1000];
+//    if (hud) {
+//        hud.hidden = YES;
+//    }
+    UIView *view;
+    if (self.view == nil)
+        view = [[UIApplication sharedApplication].windows lastObject];
+    else
+        view = self.view;
+    
+    [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 @end

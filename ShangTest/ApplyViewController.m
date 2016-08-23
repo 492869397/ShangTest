@@ -10,6 +10,8 @@
 #import "SchoolTableViewCell.h"
 #import "SchoolDetailViewController.h"
 
+#import <SDCycleScrollView.h>
+
 @interface ApplyViewController ()
 
 @property(strong,nonatomic)UIView *headerView;
@@ -27,12 +29,15 @@
 
 -(void)initViewLayout
 {
+    UIView *v = [[UIView alloc]initWithFrame:CGRectMake(0,64,SCREEN_WIDTH,1)];
+    [self.view addSubview:v];
+    
     //tableview头视图
     self.headerView = [[UIView alloc]init];
     
+    NSArray *a = @[@"1",@"2",@"3"];
     
-    
-    UIView *adview = [[UIView alloc]init];
+    SDCycleScrollView *adview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero imageNamesGroup:a];
     [_headerView addSubview:adview];
     
     [adview mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -44,20 +49,23 @@
     UIView *buttonView = [[UIView alloc]init];
     [_headerView addSubview:buttonView];
     
+
+    
     [buttonView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(adview.bottom).offset(0);
         make.left.right.equalTo(_headerView);
         make.height.equalTo(@70);
     }];
     
-    UIView *v1 = [self setButtonViewWithImage:nil Title:@"报名流程"];
-    UIView *v2 = [self setButtonViewWithImage:nil Title:@"学习流程"];
-    UIView *v3 = [self setButtonViewWithImage:nil Title:@"服务保障"];
-    UIView *v4 = [self setButtonViewWithImage:nil Title:@"常见问题"];
+    UIView *v1 = [self setButtonViewWithImage:@"1" Title:@"报名流程"];
+    UIView *v2 = [self setButtonViewWithImage:@"2" Title:@"学习流程"];
+    UIView *v3 = [self setButtonViewWithImage:@"3" Title:@"服务保障"];
+    UIView *v4 = [self setButtonViewWithImage:@"4" Title:@"常见问题"];
     [buttonView addSubview:v1];
     [buttonView addSubview:v2];
     [buttonView addSubview:v3];
     [buttonView addSubview:v4];
+    
     
     [v1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(buttonView);
@@ -87,9 +95,9 @@
     table.dataSource = self;
     table.rowHeight = 84;
     [self.view addSubview:table];
+    
 
-    table.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-49);
-    table.backgroundColor = [UIColor yellowColor];
+    table.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-49);
     
     _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 170);
     

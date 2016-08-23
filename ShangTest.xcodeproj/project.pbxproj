@@ -10,6 +10,9 @@
 		900A3C8AD5D36F231E7C108B /* libPods-ShangTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8061FC399084EDB116BEEAB /* libPods-ShangTest.a */; };
 		BF4A6E121D6B0834005F164A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E111D6B0834005F164A /* MBProgressHUD.m */; };
 		BF4A6E151D6B08EA005F164A /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E141D6B08EA005F164A /* UIViewController+HUD.m */; };
+		BF4A6E241D6C285C005F164A /* SHPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E231D6C285C005F164A /* SHPieChartView.m */; };
+		BF4A6E2C1D6C2950005F164A /* TestResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E2A1D6C2950005F164A /* TestResultViewController.m */; };
+		BF4A6E2D1D6C2950005F164A /* TestResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF4A6E2B1D6C2950005F164A /* TestResultViewController.xib */; };
 		BF711BCE1D62A8E5003E00C5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF711BCD1D62A8E5003E00C5 /* LaunchScreen.xib */; };
 		BF711BD21D62ACA0003E00C5 /* SchoolTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF711BD01D62ACA0003E00C5 /* SchoolTableViewCell.m */; };
 		BF711BD31D62ACA0003E00C5 /* SchoolTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF711BD11D62ACA0003E00C5 /* SchoolTableViewCell.xib */; };
@@ -27,7 +30,6 @@
 		BF790C891D62B73E006CE990 /* SchoolDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF790C871D62B73E006CE990 /* SchoolDetailTableViewCell.m */; };
 		BF790C8A1D62B73E006CE990 /* SchoolDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF790C881D62B73E006CE990 /* SchoolDetailTableViewCell.xib */; };
 		BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF790C8B1D62C55B006CE990 /* Question.xcdatamodeld */; };
-		BF790C901D630AC2006CE990 /* InitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF790C8F1D630AC2006CE990 /* InitModel.m */; };
 		BFA098771D616A410032445E /* RootNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA098761D616A410032445E /* RootNavigationController.m */; };
 		BFA0987B1D6170500032445E /* ApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA098791D6170500032445E /* ApplyViewController.m */; };
 		BFA1ACB81D641AED0010E3D2 /* SelectCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1ACB61D641AED0010E3D2 /* SelectCollectionViewCell.m */; };
@@ -80,6 +82,11 @@
 		BF4A6E111D6B0834005F164A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BF4A6E131D6B08EA005F164A /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
 		BF4A6E141D6B08EA005F164A /* UIViewController+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HUD.m"; sourceTree = "<group>"; };
+		BF4A6E221D6C285C005F164A /* SHPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPieChartView.h; sourceTree = "<group>"; };
+		BF4A6E231D6C285C005F164A /* SHPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPieChartView.m; sourceTree = "<group>"; };
+		BF4A6E291D6C2950005F164A /* TestResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResultViewController.h; sourceTree = "<group>"; };
+		BF4A6E2A1D6C2950005F164A /* TestResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResultViewController.m; sourceTree = "<group>"; };
+		BF4A6E2B1D6C2950005F164A /* TestResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestResultViewController.xib; sourceTree = "<group>"; };
 		BF711BCD1D62A8E5003E00C5 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		BF711BCF1D62ACA0003E00C5 /* SchoolTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolTableViewCell.h; sourceTree = "<group>"; };
 		BF711BD01D62ACA0003E00C5 /* SchoolTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolTableViewCell.m; sourceTree = "<group>"; };
@@ -113,8 +120,6 @@
 		BF790C871D62B73E006CE990 /* SchoolDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailTableViewCell.m; sourceTree = "<group>"; };
 		BF790C881D62B73E006CE990 /* SchoolDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolDetailTableViewCell.xib; sourceTree = "<group>"; };
 		BF790C8C1D62C55B006CE990 /* Question.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Question.xcdatamodel; sourceTree = "<group>"; };
-		BF790C8E1D630AC2006CE990 /* InitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitModel.h; sourceTree = "<group>"; };
-		BF790C8F1D630AC2006CE990 /* InitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitModel.m; sourceTree = "<group>"; };
 		BFA098751D616A410032445E /* RootNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNavigationController.h; sourceTree = "<group>"; };
 		BFA098761D616A410032445E /* RootNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNavigationController.m; sourceTree = "<group>"; };
 		BFA098781D6170500032445E /* ApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyViewController.h; sourceTree = "<group>"; };
@@ -211,6 +216,15 @@
 			name = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		BF4A6E211D6C268D005F164A /* SHPieChartView */ = {
+			isa = PBXGroup;
+			children = (
+				BF4A6E221D6C285C005F164A /* SHPieChartView.h */,
+				BF4A6E231D6C285C005F164A /* SHPieChartView.m */,
+			);
+			name = SHPieChartView;
+			sourceTree = "<group>";
+		};
 		BF749CAE1D59AD7C00D22B6B = {
 			isa = PBXGroup;
 			children = (
@@ -238,8 +252,6 @@
 			children = (
 				BF749CBD1D59AD7D00D22B6B /* AppDelegate.h */,
 				BF749CBE1D59AD7D00D22B6B /* AppDelegate.m */,
-				BF790C8E1D630AC2006CE990 /* InitModel.h */,
-				BF790C8F1D630AC2006CE990 /* InitModel.m */,
 				BFA098751D616A410032445E /* RootNavigationController.h */,
 				BFA098761D616A410032445E /* RootNavigationController.m */,
 				BFA4EF631D61AD0D00A66D15 /* 报名 */,
@@ -287,6 +299,7 @@
 		BF749CF01D59AFEE00D22B6B /* Third Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BF4A6E211D6C268D005F164A /* SHPieChartView */,
 				BF4A6E0F1D6B080E005F164A /* MBProgressHUD */,
 				BFD280871D658B2D007D20C0 /* MJExtension */,
 			);
@@ -315,6 +328,9 @@
 				BFB3F5551D6451FB0004C94B /* TestTypeTableViewCell.xib */,
 				BF749CFC1D59C01400D22B6B /* TestViewController.h */,
 				BF749CFD1D59C01400D22B6B /* TestViewController.m */,
+				BF4A6E291D6C2950005F164A /* TestResultViewController.h */,
+				BF4A6E2A1D6C2950005F164A /* TestResultViewController.m */,
+				BF4A6E2B1D6C2950005F164A /* TestResultViewController.xib */,
 			);
 			name = "学习";
 			sourceTree = "<group>";
@@ -518,6 +534,7 @@
 				BFB3F57A1D654A230004C94B /* 7.png in Resources */,
 				BF790C8A1D62B73E006CE990 /* SchoolDetailTableViewCell.xib in Resources */,
 				BF711BCE1D62A8E5003E00C5 /* LaunchScreen.xib in Resources */,
+				BF4A6E2D1D6C2950005F164A /* TestResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,10 +610,10 @@
 				BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */,
 				BF711BD21D62ACA0003E00C5 /* SchoolTableViewCell.m in Sources */,
 				BF4A6E121D6B0834005F164A /* MBProgressHUD.m in Sources */,
-				BF790C901D630AC2006CE990 /* InitModel.m in Sources */,
 				BFD2808B1D658BCF007D20C0 /* ModuleModel.m in Sources */,
 				BFD280911D65B5F0007D20C0 /* OptionModel.m in Sources */,
 				BF749CEF1D59AEEA00D22B6B /* SelectViewController.m in Sources */,
+				BF4A6E241D6C285C005F164A /* SHPieChartView.m in Sources */,
 				BF749CBF1D59AD7D00D22B6B /* AppDelegate.m in Sources */,
 				BF749CF91D59B3C900D22B6B /* SecondSelectViewController.m in Sources */,
 				BF711BD71D62B0D4003E00C5 /* SchoolDetailViewController.m in Sources */,
@@ -606,6 +623,7 @@
 				BFB3F54C1D643BAA0004C94B /* SecondSelectTableViewCell.m in Sources */,
 				BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */,
 				BF749CBC1D59AD7D00D22B6B /* main.m in Sources */,
+				BF4A6E2C1D6C2950005F164A /* TestResultViewController.m in Sources */,
 				BFD2808E1D65912B007D20C0 /* SuiteModel.m in Sources */,
 				BFA1ACB81D641AED0010E3D2 /* SelectCollectionViewCell.m in Sources */,
 				BF4A6E151D6B08EA005F164A /* UIViewController+HUD.m in Sources */,

@@ -33,24 +33,34 @@
 
 -(void)getDataFromNet
 {
+    [self showMessage:@"加载中..."];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSDictionary *pass = [NSDictionary dictionaryWithObjectsAndKeys:_module_code,@"module_code", nil];
     
     [manager POST:LINK_SUITE parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        NSArray *arr = responseObject[@"result"];
         
-        [_dataArray removeAllObjects];
+        [self hiddenWaitHUD];
         
-        for (NSDictionary *dic in arr) {
-            SuiteModel *s = [SuiteModel creatSuiteWithDict:dic];
-            [_dataArray addObject:s];
+        if ([responseObject[@"result"] isKindOfClass:[NSArray class]]) {
+            NSArray *arr = responseObject[@"result"];
+            [_dataArray removeAllObjects];
+            
+            for (NSDictionary *dic in arr) {
+                SuiteModel *s = [SuiteModel creatSuiteWithDict:dic];
+                [_dataArray addObject:s];
+            }
+            
+            [_table reloadData];
         }
         
-        [_table reloadData];
+        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        [self hiddenWaitHUD];
+
+        [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
     }];
 }
 

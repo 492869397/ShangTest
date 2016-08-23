@@ -27,7 +27,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.dataArray = [NSMutableArray arrayWithObjects:@"习题收藏",@"考试测试",@"认证考试",@"阶段复习",@"练习历史",@"人事65问",@"错题记录",@"企业面试",@"意见反馈",@"逻辑思维", nil];
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self initSubviews];
     
 }
