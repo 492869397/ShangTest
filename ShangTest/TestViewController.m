@@ -8,7 +8,6 @@
 
 #import "TestViewController.h"
 #import "QuestionModel.h"
-#import "TestMainView.h"
 
 #import "TestResultViewController.h"
 
@@ -23,8 +22,7 @@ typedef NS_ENUM(NSInteger,SelectCode)
 @interface TestViewController ()
 
 
-//选择的选项数组
-@property(strong,nonatomic)NSMutableArray *selectArray;
+
 
 //答题正确错误数组
 @property(strong,nonatomic)NSMutableArray *correctArray;
@@ -98,9 +96,14 @@ typedef NS_ENUM(NSInteger,SelectCode)
     [pass setObject:@1 forKey:@"page"];
     [pass setObject:number forKey:@"rows"];
     
-    [manager POST:@"http://123.57.28.11:8080/sxt_studentsystem/selectTQuestion.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [manager POST:@"http://139.224.73.86:8080/sxt_studentsystem/selectTQuestion.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         [self hiddenWaitHUD];
+        
+        if (![responseObject[@"result"] isKindOfClass:[NSArray class]]) {
+            [self showHUDWithMessage:@"获取数据失败，请重试" HiddenDelay:0.5];
+            return ;
+        }
         
         NSArray *arr = responseObject[@"result"];
         [_dataArray removeAllObjects];
@@ -143,31 +146,22 @@ typedef NS_ENUM(NSInteger,SelectCode)
     
     
     
-    self.leftView =[[[NSBundle mainBundle] loadNibNamed:@"TestMainView" owner:nil options:nil] lastObject];
-    self.leftScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
+    self.leftView =[[QuestionView alloc]initWithFrame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     
     
-    self.centerView =[[[NSBundle mainBundle] loadNibNamed:@"TestMainView" owner:nil options:nil] lastObject];
-    self.centerScroll = [[UIScrollView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
+    self.centerView =[[QuestionView alloc]initWithFrame: CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     
-    self.rightView =[[[NSBundle mainBundle] loadNibNamed:@"TestMainView" owner:nil options:nil] lastObject];
-    self.rightScroll = [[UIScrollView alloc]initWithFrame:CGRectMake( SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
+    self.rightView =[[QuestionView alloc]initWithFrame: CGRectMake( SCREEN_WIDTH*2, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     
     _leftView.delegate = self;
     _centerView.delegate = self;
     _rightView.delegate = self;
     
-    self.leftView.frame =CGRectMake(0, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64);
-    self.centerView.frame =CGRectMake(0, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64);
-    self.rightView.frame =CGRectMake(0, 0,SCREEN_WIDTH ,SCREEN_HEIGHT-64);
+
     
-    [_leftScroll addSubview:_leftView];
-    [_centerScroll addSubview:_centerView];
-    [_rightScroll addSubview:_rightView];
-    
-    [_scroll addSubview:_leftScroll];
-    [_scroll addSubview:_centerScroll];
-    [_scroll addSubview:_rightScroll];
+    [_scroll addSubview:_leftView];
+    [_scroll addSubview:_centerView];
+    [_scroll addSubview:_rightView];
 
     
 }
@@ -231,7 +225,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
     QuestionModel *ques = _dataArray[leftIndex];
     [_leftView setContentWithQuestion:ques withIndex:leftIndex];
     
-    _leftView.selectArray = self.selectArray;
     
     if (![_selectArray[leftIndex] isEqualToString:@""]) {
         [_leftView selectOption:_selectArray[(currentIndex - 1 + _dataArray.count)%_dataArray.count]];
@@ -245,8 +238,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
     ques = _dataArray[rightIndex];
     [_rightView setContentWithQuestion:ques withIndex:rightIndex];
     
-    _rightView.selectArray = self.selectArray;
-    
     if (![_selectArray[rightIndex] isEqualToString:@""]) {
         [_rightView selectOption:_selectArray[rightIndex]];
     }
@@ -255,14 +246,40 @@ typedef NS_ENUM(NSInteger,SelectCode)
     
     ques = _dataArray[currentIndex];
     [_centerView setContentWithQuestion:ques withIndex:currentIndex];
-    
-    _centerView.selectArray = self.selectArray;
-    
+
     if (![_selectArray[currentIndex] isEqualToString:@""]) {
         [_centerView selectOption:_selectArray[currentIndex]];
     }
 
 }
 
+
+-(void)commitAnswer
+{
+    NSMutableString *s = [NSMutableString string];
+    for (QuestionModel *ques in _dataArray) {
+        NSInteger i = [_dataArray indexOfObject:ques];
+        
+        [s appendFormat:@"question_code:%@,option_code:%@,",ques.question_code,_selectArray[i] ];
+    }
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *pass = [NSMutableDictionary dictionaryWithCapacity:3];
+    [pass setObject:@"0101101" forKey:@"student_id"];
+    [pass setObject:@"00:00:00" forKey:@"time"];
+    [pass setObject:s forKey:@"list"];
+    
+
+    [manager POST:@"http://139.224.73.86:8080/sxt_studentsystem/addTTestorRecordForList1.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        TestResultViewController *t = [[TestResultViewController alloc]init];
+        [self.navigationController pushViewController:t animated:YES];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
+    }];
+    
+    
+}
 
 @end

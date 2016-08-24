@@ -1,22 +1,19 @@
 //
-//  TestMainView.h
+//  QuestionView.h
 //  ShangTest
 //
-//  Created by len on 16/8/9.
+//  Created by len on 16/8/24.
 //  Copyright © 2016年 sxt. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "TestViewController.h"
 #import "QuestionModel.h"
-
-@interface TestMainView : UIView<UIGestureRecognizerDelegate>
-
-@property(nonatomic,weak)TestViewController *delegate;
+@class TestViewController;
+@interface QuestionView : UIView
 
 @property(nonatomic,assign)NSInteger index;
 
-@property(nonatomic,weak)NSMutableArray *selectArray;
+@property(nonatomic,weak)TestViewController *delegate;
 
 -(void)setContentWithQuestion:(QuestionModel*)question withIndex:(NSInteger)index;
 

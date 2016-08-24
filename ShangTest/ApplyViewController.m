@@ -57,9 +57,9 @@
         make.height.equalTo(@70);
     }];
     
-    UIView *v1 = [self setButtonViewWithImage:@"1" Title:@"报名流程"];
-    UIView *v2 = [self setButtonViewWithImage:@"2" Title:@"学习流程"];
-    UIView *v3 = [self setButtonViewWithImage:@"3" Title:@"服务保障"];
+    UIView *v1 = [self setButtonViewWithImage:@"1.png" Title:@"报名流程"];
+    UIView *v2 = [self setButtonViewWithImage:@"2.png" Title:@"学习流程"];
+    UIView *v3 = [self setButtonViewWithImage:@"3.png" Title:@"服务保障"];
     UIView *v4 = [self setButtonViewWithImage:@"4" Title:@"常见问题"];
     [buttonView addSubview:v1];
     [buttonView addSubview:v2];

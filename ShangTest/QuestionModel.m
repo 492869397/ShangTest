@@ -16,6 +16,7 @@
     QuestionModel *ques = [[QuestionModel alloc]init];
     ques.question = (dict[@"question"])[@"title"];
     ques.option_code = [dict[@"result"] firstObject] [@"option_code"];
+    ques.question_code = (dict[@"question"])[@"question_code"];
     ques.answerArray = [NSMutableArray array];
     
     for (NSDictionary *dic in dict[@"option"]) {

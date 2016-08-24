@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QuestionView.h"
 
-@class TestMainView;
 
 typedef NS_ENUM(NSInteger,TestType)
 {
@@ -26,19 +26,20 @@ typedef NS_ENUM(NSInteger,TestType)
 
 @property(strong,nonatomic)NSMutableArray *dataArray;
 
+//选择的选项数组
+@property(strong,nonatomic)NSMutableArray *selectArray;
 
 @property(assign,nonatomic)NSInteger displayIndex;
 
-@property(strong,nonatomic)UIScrollView *centerScroll;
 
-@property(strong,nonatomic)UIScrollView *leftScroll;
 
-@property(strong,nonatomic)UIScrollView *rightScroll;
+@property(strong,nonatomic)QuestionView *leftView;
 
-@property(strong,nonatomic)TestMainView *leftView;
+@property(strong,nonatomic)QuestionView *centerView;
 
-@property(strong,nonatomic)TestMainView *centerView;
+@property(strong,nonatomic)QuestionView *rightView;
 
-@property(strong,nonatomic)TestMainView *rightView;
+
+-(void)commitAnswer;
 
 @end

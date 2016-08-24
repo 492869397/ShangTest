@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		900A3C8AD5D36F231E7C108B /* libPods-ShangTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8061FC399084EDB116BEEAB /* libPods-ShangTest.a */; };
+		BF0564461D6D332000A99DAF /* QuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0564451D6D332000A99DAF /* QuestionView.m */; };
 		BF4A6E121D6B0834005F164A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E111D6B0834005F164A /* MBProgressHUD.m */; };
 		BF4A6E151D6B08EA005F164A /* UIViewController+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E141D6B08EA005F164A /* UIViewController+HUD.m */; };
 		BF4A6E241D6C285C005F164A /* SHPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4A6E231D6C285C005F164A /* SHPieChartView.m */; };
@@ -26,7 +27,6 @@
 		BF749CEF1D59AEEA00D22B6B /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CEE1D59AEEA00D22B6B /* SelectViewController.m */; };
 		BF749CF91D59B3C900D22B6B /* SecondSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CF81D59B3C900D22B6B /* SecondSelectViewController.m */; };
 		BF749CFE1D59C01400D22B6B /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749CFD1D59C01400D22B6B /* TestViewController.m */; };
-		BF749D011D59D91900D22B6B /* TestMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF749D001D59D91900D22B6B /* TestMainView.m */; };
 		BF790C891D62B73E006CE990 /* SchoolDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF790C871D62B73E006CE990 /* SchoolDetailTableViewCell.m */; };
 		BF790C8A1D62B73E006CE990 /* SchoolDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF790C881D62B73E006CE990 /* SchoolDetailTableViewCell.xib */; };
 		BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF790C8B1D62C55B006CE990 /* Question.xcdatamodeld */; };
@@ -55,8 +55,6 @@
 		BFD2808E1D65912B007D20C0 /* SuiteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD2808D1D65912B007D20C0 /* SuiteModel.m */; };
 		BFD280911D65B5F0007D20C0 /* OptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD280901D65B5F0007D20C0 /* OptionModel.m */; };
 		BFDC9C081D5B0AE500D57616 /* QuestionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9C071D5B0AE500D57616 /* QuestionModel.m */; };
-		BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */; };
-		BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +76,8 @@
 
 /* Begin PBXFileReference section */
 		1535EAC9C17A555F1AAB1C37 /* Pods-ShangTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShangTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShangTest/Pods-ShangTest.release.xcconfig"; sourceTree = "<group>"; };
+		BF0564441D6D332000A99DAF /* QuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionView.h; sourceTree = "<group>"; };
+		BF0564451D6D332000A99DAF /* QuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionView.m; sourceTree = "<group>"; };
 		BF4A6E101D6B0834005F164A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		BF4A6E111D6B0834005F164A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BF4A6E131D6B08EA005F164A /* UIViewController+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HUD.h"; sourceTree = "<group>"; };
@@ -114,8 +114,6 @@
 		BF749CF81D59B3C900D22B6B /* SecondSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondSelectViewController.m; sourceTree = "<group>"; };
 		BF749CFC1D59C01400D22B6B /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		BF749CFD1D59C01400D22B6B /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		BF749CFF1D59D91900D22B6B /* TestMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMainView.h; sourceTree = "<group>"; };
-		BF749D001D59D91900D22B6B /* TestMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMainView.m; sourceTree = "<group>"; };
 		BF790C861D62B73E006CE990 /* SchoolDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolDetailTableViewCell.h; sourceTree = "<group>"; };
 		BF790C871D62B73E006CE990 /* SchoolDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolDetailTableViewCell.m; sourceTree = "<group>"; };
 		BF790C881D62B73E006CE990 /* SchoolDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SchoolDetailTableViewCell.xib; sourceTree = "<group>"; };
@@ -155,9 +153,6 @@
 		BFD280901D65B5F0007D20C0 /* OptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionModel.m; sourceTree = "<group>"; };
 		BFDC9C061D5B0AE500D57616 /* QuestionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionModel.h; sourceTree = "<group>"; };
 		BFDC9C071D5B0AE500D57616 /* QuestionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionModel.m; sourceTree = "<group>"; };
-		BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestMainView.xib; sourceTree = "<group>"; };
-		BFDC9CCE1D5C0F5500D57616 /* AnswerBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerBoard.h; sourceTree = "<group>"; };
-		BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerBoard.m; sourceTree = "<group>"; };
 		C8061FC399084EDB116BEEAB /* libPods-ShangTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShangTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E67A83BC135D132EF3E6303A /* Pods-ShangTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShangTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShangTest/Pods-ShangTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -203,6 +198,15 @@
 				C8061FC399084EDB116BEEAB /* libPods-ShangTest.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF0564431D6D32E100A99DAF /* 答题页面第二版 */ = {
+			isa = PBXGroup;
+			children = (
+				BF0564441D6D332000A99DAF /* QuestionView.h */,
+				BF0564451D6D332000A99DAF /* QuestionView.m */,
+			);
+			name = "答题页面第二版";
 			sourceTree = "<group>";
 		};
 		BF4A6E0F1D6B080E005F164A /* MBProgressHUD */ = {
@@ -309,7 +313,7 @@
 		BFA098741D6153BD0032445E /* 学习 */ = {
 			isa = PBXGroup;
 			children = (
-				BFB3F5581D64603A0004C94B /* 答题页面 */,
+				BF0564431D6D32E100A99DAF /* 答题页面第二版 */,
 				BF749CED1D59AEE900D22B6B /* SelectViewController.h */,
 				BF749CEE1D59AEEA00D22B6B /* SelectViewController.m */,
 				BFA1ACB51D641AED0010E3D2 /* SelectCollectionViewCell.h */,
@@ -367,18 +371,6 @@
 				BFD280901D65B5F0007D20C0 /* OptionModel.m */,
 			);
 			name = Model;
-			sourceTree = "<group>";
-		};
-		BFB3F5581D64603A0004C94B /* 答题页面 */ = {
-			isa = PBXGroup;
-			children = (
-				BF749CFF1D59D91900D22B6B /* TestMainView.h */,
-				BF749D001D59D91900D22B6B /* TestMainView.m */,
-				BFDC9CCC1D5C0CD300D57616 /* TestMainView.xib */,
-				BFDC9CCE1D5C0F5500D57616 /* AnswerBoard.h */,
-				BFDC9CCF1D5C0F5500D57616 /* AnswerBoard.m */,
-			);
-			name = "答题页面";
 			sourceTree = "<group>";
 		};
 		BFB3F5591D6543080004C94B /* image */ = {
@@ -521,7 +513,6 @@
 				BF711BD81D62B0D4003E00C5 /* SchoolDetailViewController.xib in Resources */,
 				BFB3F5521D644FD60004C94B /* TestTypeViewController.xib in Resources */,
 				BFB3F5571D6451FB0004C94B /* TestTypeTableViewCell.xib in Resources */,
-				BFDC9CCD1D5C0CD300D57616 /* TestMainView.xib in Resources */,
 				BF749CC71D59AD7E00D22B6B /* Assets.xcassets in Resources */,
 				BFB3F57C1D654A230004C94B /* 9.png in Resources */,
 				BFD280881D658B2D007D20C0 /* MJExtension in Resources */,
@@ -607,7 +598,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFDC9CD01D5C0F5500D57616 /* AnswerBoard.m in Sources */,
 				BF711BD21D62ACA0003E00C5 /* SchoolTableViewCell.m in Sources */,
 				BF4A6E121D6B0834005F164A /* MBProgressHUD.m in Sources */,
 				BFD2808B1D658BCF007D20C0 /* ModuleModel.m in Sources */,
@@ -618,7 +608,7 @@
 				BF749CF91D59B3C900D22B6B /* SecondSelectViewController.m in Sources */,
 				BF711BD71D62B0D4003E00C5 /* SchoolDetailViewController.m in Sources */,
 				BFA098771D616A410032445E /* RootNavigationController.m in Sources */,
-				BF749D011D59D91900D22B6B /* TestMainView.m in Sources */,
+				BF0564461D6D332000A99DAF /* QuestionView.m in Sources */,
 				BF790C891D62B73E006CE990 /* SchoolDetailTableViewCell.m in Sources */,
 				BFB3F54C1D643BAA0004C94B /* SecondSelectTableViewCell.m in Sources */,
 				BF790C8D1D62C55B006CE990 /* Question.xcdatamodeld in Sources */,

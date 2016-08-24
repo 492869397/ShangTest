@@ -14,7 +14,7 @@
 
 
 
-#define LINK_MODULE @"http://123.57.28.11:8080/sxt_studentsystem/selectTModule.do"
+#define LINK_MODULE @"http://139.224.73.86:8080/sxt_studentsystem/selectTModule.do"
 
 @interface SecondSelectViewController ()
 

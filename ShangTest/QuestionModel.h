@@ -12,6 +12,8 @@
 
 @property (nonatomic,strong)NSString *question;
 
+@property (nonatomic,strong)NSString *question_code;
+
 @property (nonatomic,strong)NSString *option_code ;
 
 @property (nonatomic,strong)NSMutableArray *answerArray;
