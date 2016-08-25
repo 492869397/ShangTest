@@ -120,6 +120,7 @@
 
 @property(nonatomic,strong)UIScrollView *scrollView;
 
+@property(nonatomic,strong)UIView *analyze;
 
 
 @end
@@ -130,6 +131,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _canTouch = YES;
         
         self.singleAnswerArray = [NSMutableArray array];
         self.scrollView = [[UIScrollView alloc]init];
@@ -236,10 +238,10 @@
     }];
     
     //答案解析View
-    UIView *analyze = [[UIView alloc]init];
-    [containerView addSubview:analyze];
+    self.analyze = [[UIView alloc]init];
+    [containerView addSubview:_analyze];
     
-    [analyze mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_analyze mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(lastView.mas_bottom);
         make.left.right.equalTo(containerView);
         make.height.equalTo(@1);
@@ -260,10 +262,10 @@
     [containerView addSubview:b];
     
     [b mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(analyze.bottom).offset(20);
+        make.top.equalTo(_analyze.bottom).offset(20);
         make.width.mas_equalTo(100);
-        make.centerX.equalTo(analyze);
-        make.bottom.equalTo(containerView);
+        make.centerX.equalTo(_analyze);
+        make.bottom.equalTo(containerView).offset(-20);
         
         if (index >= _delegate.dataArray.count-1) {
             make.height.mas_equalTo(40);
@@ -276,8 +278,6 @@
     [b addTarget:self action:@selector(enterNext:) forControlEvents:UIControlEventTouchUpInside];
 
     
-    
-    
 }
 
 
@@ -286,16 +286,34 @@
 
 -(void)selectAnAnswer:(UITapGestureRecognizer*)tap
 {
+    if (![_delegate.selectArray[_index] isEqualToString:@""]) {
+        return;
+    }
+    
+    if (!_delegate) {
+        return;
+    }
+    
+    if (!_canTouch) {
+        return;
+    }
+    
+    
+    
     SingleAnswerView* answerView = (SingleAnswerView*)tap.view;
     
     NSString *s = [NSString stringWithString:answerView.key];
-    [_delegate.selectArray replaceObjectAtIndex:_index withObject:s];
+    
     
     [self selectOption:s];
+    
+    [_delegate.selectArray replaceObjectAtIndex:_index withObject:s];
 }
 
 -(void)selectOption:(NSString*)option
 {
+    
+    
     for (SingleAnswerView* ansView in _singleAnswerArray) {
         if ([option isEqualToString:ansView.key]) {
             
@@ -311,6 +329,7 @@
             [ansView showResult:YES];
         }
     }
+    
 }
 
 
@@ -319,6 +338,8 @@
 {
     [_delegate commitAnswer];
 }
+
+
 
 
 @end

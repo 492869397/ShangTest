@@ -16,6 +16,8 @@
 
 @property (nonatomic,strong)NSString *option_code ;
 
+@property (nonatomic,strong)NSString *optionLetter;
+
 @property (nonatomic,strong)NSMutableArray *answerArray;
 
 +(instancetype)creatQuestionWithDict:(NSDictionary*)dict;

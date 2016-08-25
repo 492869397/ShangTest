@@ -13,6 +13,8 @@
 
 @property(nonatomic,assign)NSInteger index;
 
+@property(nonatomic,assign)BOOL canTouch;
+
 @property(nonatomic,weak)TestViewController *delegate;
 
 -(void)setContentWithQuestion:(QuestionModel*)question withIndex:(NSInteger)index;

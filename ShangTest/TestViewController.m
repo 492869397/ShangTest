@@ -50,6 +50,15 @@ typedef NS_ENUM(NSInteger,SelectCode)
     _displayIndex = 0;
     _leftIndex = 0;
     
+    self.scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
+    _scroll.contentSize = CGSizeMake(SCREEN_WIDTH*3, 0.0);
+    _scroll.pagingEnabled = YES;
+    
+    _scroll.delegate = self;
+    _scroll.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
+    
+    [self.view addSubview:_scroll];
+    
     [self initViewLayout];
     
     [self getDataFromNet];
@@ -134,18 +143,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 -(void)initViewLayout
 {
-    self.scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
-    _scroll.contentSize = CGSizeMake(SCREEN_WIDTH*3, 0.0);
-    _scroll.pagingEnabled = YES;
-//    _scroll.showsHorizontalScrollIndicator = NO;
-//    _scroll.alwaysBounceVertical = NO;
-    _scroll.delegate = self;
-    _scroll.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
-    
-    [self.view addSubview:_scroll];
-    
-    
-    
     self.leftView =[[QuestionView alloc]initWithFrame: CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     
     
@@ -216,6 +213,16 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 
 - (void)setInfoByCurrentIndex:(NSInteger)currentIndex {
+   
+    
+    //再重新建立questionView
+    [_leftView removeFromSuperview];
+    [_centerView removeFromSuperview];
+    [_rightView removeFromSuperview];
+    
+    [self initViewLayout];
+    
+    
     
     NSInteger leftIndex = currentIndex - 1;
     if (currentIndex == 0) {
@@ -256,6 +263,20 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 -(void)commitAnswer
 {
+    
+    int i = 0;
+    for (NSString *s in _selectArray) {
+        if ([s isEqualToString:@""]) {
+            i ++;
+            break;
+        }
+    }
+    
+    if (i != 0) {
+        [self showHUDWithMessage:@"做完所有题目之后才能交卷" HiddenDelay:1];
+        return;
+    }
+    
     NSMutableString *s = [NSMutableString string];
     for (QuestionModel *ques in _dataArray) {
         NSInteger i = [_dataArray indexOfObject:ques];
@@ -273,6 +294,8 @@ typedef NS_ENUM(NSInteger,SelectCode)
     [manager POST:@"http://139.224.73.86:8080/sxt_studentsystem/addTTestorRecordForList1.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         TestResultViewController *t = [[TestResultViewController alloc]init];
+        t.dataArray = _dataArray;
+        t.selectArray = _selectArray;
         [self.navigationController pushViewController:t animated:YES];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
