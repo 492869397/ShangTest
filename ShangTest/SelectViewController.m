@@ -9,6 +9,9 @@
 #import "SelectViewController.h"
 #import "SecondSelectViewController.h"
 #import "SelectCollectionViewCell.h"
+#import "TopicCollectViewController.h"
+#import "PracticeHistoryViewController.h"
+#import "ErrorRecordViewController.h"
 
 
 @interface SelectViewController ()
@@ -71,6 +74,7 @@
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     SelectCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     NSString *s = [NSString stringWithFormat:@"%ld",indexPath.row+1];
@@ -92,8 +96,42 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+ 
+    UIViewController *viewController;
+    switch (indexPath.row) {
+        case 0:
+            viewController = [[TopicCollectViewController alloc]init];
+            break;
+            
+        case 1:
+            viewController = [[SecondSelectViewController alloc]init];
+            break;
+            
+        case 2:
+            
+        case 3:
+            
+        case 4:
+            viewController = [[PracticeHistoryViewController alloc]init];
+            break;
+            
+        case 5:
+            
+        case 6:
+            viewController = [[ErrorRecordViewController alloc]init];
+            break;
+            
+        case 7:
+            
+        case 8:
+            
+        case 9:
+            
+        default:
+            break;
+    }
     
-    SecondSelectViewController *viewController = [[SecondSelectViewController alloc]init];
+    
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

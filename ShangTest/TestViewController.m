@@ -43,6 +43,12 @@ typedef NS_ENUM(NSInteger,SelectCode)
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    UIButton *b = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+    [b setImage:[UIImage imageNamed:@"1"] forState:UIControlStateNormal];
+    [b addTarget:self action:@selector(collectQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *collect = [[UIBarButtonItem alloc]initWithCustomView:b];
+    self.navigationItem.rightBarButtonItem = collect;
+    
     self.dataArray = [NSMutableArray array];
     self.selectArray = [NSMutableArray array];
     self.correctArray = [NSMutableArray array];
@@ -305,4 +311,28 @@ typedef NS_ENUM(NSInteger,SelectCode)
     
 }
 
+
+
+-(void)collectQuestion:(UIBarButtonItem*)sender
+{
+    QuestionModel *ques = _dataArray[_displayIndex];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSMutableDictionary *pass = [NSMutableDictionary dictionaryWithCapacity:2];
+
+    [pass setObject:ques.question_code forKey:@"question_code"];
+    [pass setObject:@"0101101" forKey:@"student_id"];
+    
+    [manager POST:@"http://139.224.73.86:8080/sxt_studentsystem/addTMistakeCollection1.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        if ([responseObject[@"result"] isEqualToNumber:@1]) {
+            [self showHUDWithMessage:@"收藏成功" HiddenDelay:0.5];
+        }else
+        {
+            [self showHUDWithMessage:responseObject[@"message"] HiddenDelay:0.5];
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
+    }];
+}
 @end

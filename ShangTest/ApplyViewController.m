@@ -9,6 +9,7 @@
 #import "ApplyViewController.h"
 #import "SchoolTableViewCell.h"
 #import "SchoolDetailViewController.h"
+#import "ProblemViewController.h"
 
 #import <SDCycleScrollView.h>
 
@@ -35,7 +36,7 @@
     //tableview头视图
     self.headerView = [[UIView alloc]init];
     
-    NSArray *a = @[@"1",@"2",@"3"];
+    NSArray *a = @[@"studytop.jpg",@"2"];
     
     SDCycleScrollView *adview = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero imageNamesGroup:a];
     [_headerView addSubview:adview];
@@ -43,7 +44,7 @@
     [adview mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_headerView);
         make.left.right.equalTo(_headerView);
-        make.height.equalTo(@100);
+        make.height.mas_equalTo(SCREEN_WIDTH/3.83);
     }];
     
     UIView *buttonView = [[UIView alloc]init];
@@ -57,10 +58,16 @@
         make.height.equalTo(@70);
     }];
     
-    UIView *v1 = [self setButtonViewWithImage:@"1.png" Title:@"报名流程"];
-    UIView *v2 = [self setButtonViewWithImage:@"2.png" Title:@"学习流程"];
-    UIView *v3 = [self setButtonViewWithImage:@"3.png" Title:@"服务保障"];
-    UIView *v4 = [self setButtonViewWithImage:@"4" Title:@"常见问题"];
+    UIView *v1 = [self setButtonViewWithImage:@"p1.png" Title:@"报名流程" withSEL:(@selector(tapView:))];
+    UIView *v2 = [self setButtonViewWithImage:@"p2.png" Title:@"学习流程" withSEL:(@selector(tapView:))];
+    UIView *v3 = [self setButtonViewWithImage:@"p3.png" Title:@"服务保障" withSEL:(@selector(tapView:))];
+    UIView *v4 = [self setButtonViewWithImage:@"p4.png" Title:@"常见问题" withSEL:(@selector(tapView:))];
+    
+    v1.tag = 1;
+    v2.tag = 2;
+    v3.tag = 3;
+    v4.tag = 4;
+    
     [buttonView addSubview:v1];
     [buttonView addSubview:v2];
     [buttonView addSubview:v3];
@@ -97,7 +104,7 @@
     [self.view addSubview:table];
     
 
-    table.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-49);
+    table.frame = CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-49-64);
     
     _headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 170);
     
@@ -106,15 +113,14 @@
     
 }
 
--(UIView*)setButtonViewWithImage:(NSString*)imageName Title:(NSString*)title
+-(UIView*)setButtonViewWithImage:(NSString*)imageName Title:(NSString*)title withSEL:(SEL)sel
 {
     UIView *view = [[UIView alloc]init];
-    UIImage *image = [UIImage imageWithContentsOfFile:imageName];
+    UIImage *image = [UIImage imageNamed:imageName];
     UIImageView *img = [[UIImageView alloc]initWithImage:image];
     UILabel *label = [[UILabel alloc]init];
     label.text = title;
     
-    img.backgroundColor = [UIColor yellowColor];
     
     [view addSubview:img];
     [view addSubview:label];
@@ -122,7 +128,7 @@
     
     [img mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(view);
-        make.height.width.equalTo(@40);
+        make.height.width.equalTo(@35);
         make.top.equalTo(view);
         make.bottom.equalTo(label.mas_top).offset(-5);
     }];
@@ -133,7 +139,17 @@
     }];
     
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:sel];
+    [view addGestureRecognizer:tap];
+    
     return view;
+}
+
+
+-(void)tapView:(UITapGestureRecognizer*)tap
+{
+    ProblemViewController *pro = [[ProblemViewController alloc]init];
+    [self.navigationController pushViewController:pro animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

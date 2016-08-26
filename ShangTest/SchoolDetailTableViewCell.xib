@@ -39,6 +39,17 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thS-Fg-46C">
+                        <rect key="frame" x="242" y="25" width="60" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="csR-oR-r4b"/>
+                            <constraint firstAttribute="width" constant="60" id="nAc-IB-U3G"/>
+                        </constraints>
+                        <state key="normal" title="Button" image="phone.png"/>
+                        <connections>
+                            <action selector="callPhone:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ktb-Ma-HTT"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="dle-xO-wwK" firstAttribute="leading" secondItem="RfO-Mb-E6g" secondAttribute="leading" id="FGu-hJ-sb8"/>
@@ -48,10 +59,15 @@
                     <constraint firstItem="dle-xO-wwK" firstAttribute="top" secondItem="QcN-Uy-xku" secondAttribute="bottom" constant="3" id="SH4-iU-nIR"/>
                     <constraint firstItem="RfO-Mb-E6g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="XOd-eL-gjW"/>
                     <constraint firstItem="8f8-MS-NbV" firstAttribute="leading" secondItem="dle-xO-wwK" secondAttribute="trailing" constant="10" id="Xga-Ri-OUh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="thS-Fg-46C" secondAttribute="trailing" constant="10" id="gMv-qE-TpU"/>
+                    <constraint firstItem="thS-Fg-46C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rSP-UR-VwQ"/>
                     <constraint firstItem="QcN-Uy-xku" firstAttribute="leading" secondItem="RfO-Mb-E6g" secondAttribute="leading" id="ysb-vR-szk"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="280" y="347.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="phone.png" width="180" height="131"/>
+    </resources>
 </document>

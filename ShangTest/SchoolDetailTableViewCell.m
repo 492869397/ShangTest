@@ -21,4 +21,13 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)callPhone:(id)sender {
+//    NSURL *url = [NSURL URLWithString:@"tel://100100100"];
+//    [[UIApplication sharedApplication] openURL:url];
+    UIWebView *webView = [[UIWebView alloc]init];
+    NSURL *url = [NSURL URLWithString:@"tel://100100100"];
+    [webView loadRequest:[NSURLRequest requestWithURL:url ]];
+}
+
+
 @end

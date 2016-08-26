@@ -25,11 +25,15 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     ApplyViewController *apply = [[ApplyViewController alloc]init];
-    apply.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"报名" image:nil selectedImage:nil];
+    UIImage *image = [[UIImage imageNamed:@"shop_home_base11"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectImage = [[UIImage imageNamed:@"shop_home_base12"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    apply.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"报名" image:image selectedImage:selectImage];
     
     
     SelectViewController *select = [[SelectViewController alloc]init];
-    select.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"答题" image:nil selectedImage:nil];
+    image = [[UIImage imageNamed:@"shop_home_base21"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    selectImage = [[UIImage imageNamed:@"shop_home_base22"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    select.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"答题" image:image selectedImage:selectImage];
     
     
     
@@ -39,6 +43,13 @@
     
     
     RootNavigationController *nav = [[RootNavigationController alloc]initWithRootViewController:tab];
+    
+    
+    UINavigationBar * navBar =[UINavigationBar appearance] ;
+    [navBar setBackgroundColor:[UIColor blueColor]];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -70) forBarMetrics:UIBarMetricsDefault];
+    //将返回，左，右 item的字体颜色设置为白色
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     
     _window.rootViewController = nav;
