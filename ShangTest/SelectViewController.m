@@ -36,6 +36,11 @@
 
 -(void)initSubviews
 {
+    
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 0.5)];
+    [self.view addSubview:view];
+    
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
     layout.minimumLineSpacing = 0.5;
     layout.minimumInteritemSpacing = 0.5;

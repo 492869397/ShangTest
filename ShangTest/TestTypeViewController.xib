@@ -18,8 +18,43 @@
             <subviews>
                 <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPT-Pk-jF4">
                     <rect key="frame" x="0.0" y="64" width="600" height="50"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-TX-L8D">
+                            <rect key="frame" x="0.0" y="0.0" width="200" height="50"/>
+                            <state key="normal" title="初级"/>
+                            <connections>
+                                <action selector="selectType:" destination="-1" eventType="touchUpInside" id="W9w-dB-OUN"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SCs-Xg-UPA">
+                            <rect key="frame" x="200" y="0.0" width="200" height="50"/>
+                            <state key="normal" title="中级"/>
+                            <connections>
+                                <action selector="selectType:" destination="-1" eventType="touchUpInside" id="gQM-k7-KsB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSu-Zd-R97">
+                            <rect key="frame" x="400" y="0.0" width="200" height="50"/>
+                            <state key="normal" title="高级"/>
+                            <connections>
+                                <action selector="selectType:" destination="-1" eventType="touchUpInside" id="5rm-z3-BKQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="X1b-TX-L8D" firstAttribute="top" secondItem="WPT-Pk-jF4" secondAttribute="top" id="0Ic-Wm-2Rh"/>
+                        <constraint firstItem="SCs-Xg-UPA" firstAttribute="leading" secondItem="X1b-TX-L8D" secondAttribute="trailing" id="0YW-fF-JgC"/>
+                        <constraint firstItem="SCs-Xg-UPA" firstAttribute="top" secondItem="WPT-Pk-jF4" secondAttribute="top" id="0hn-WQ-e6q"/>
+                        <constraint firstItem="lSu-Zd-R97" firstAttribute="width" secondItem="X1b-TX-L8D" secondAttribute="width" id="D3D-zN-Blf"/>
+                        <constraint firstAttribute="trailing" secondItem="lSu-Zd-R97" secondAttribute="trailing" id="KPh-ha-r0z"/>
+                        <constraint firstItem="lSu-Zd-R97" firstAttribute="leading" secondItem="SCs-Xg-UPA" secondAttribute="trailing" id="McH-KA-gKY"/>
+                        <constraint firstItem="lSu-Zd-R97" firstAttribute="top" secondItem="WPT-Pk-jF4" secondAttribute="top" id="OAj-gY-YDG"/>
+                        <constraint firstItem="X1b-TX-L8D" firstAttribute="leading" secondItem="WPT-Pk-jF4" secondAttribute="leading" id="clj-tB-Kla"/>
+                        <constraint firstAttribute="bottom" secondItem="SCs-Xg-UPA" secondAttribute="bottom" id="feE-ss-zsV"/>
+                        <constraint firstAttribute="bottom" secondItem="lSu-Zd-R97" secondAttribute="bottom" id="kU9-fy-dsT"/>
+                        <constraint firstItem="SCs-Xg-UPA" firstAttribute="width" secondItem="X1b-TX-L8D" secondAttribute="width" id="opP-tr-FJG"/>
+                        <constraint firstAttribute="bottom" secondItem="X1b-TX-L8D" secondAttribute="bottom" id="r7Q-8w-2oQ"/>
                         <constraint firstAttribute="height" constant="50" id="x1u-BM-Igx"/>
                     </constraints>
                 </view>
@@ -58,6 +93,7 @@
                     <exclude reference="shy-vJ-wPi"/>
                 </mask>
             </variation>
+            <point key="canvasLocation" x="193" y="192"/>
         </view>
     </objects>
 </document>

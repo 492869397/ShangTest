@@ -16,7 +16,12 @@
 
 @interface TestTypeViewController ()
 
+@property(nonatomic,assign)NSInteger index;
+
 @property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *easyArray;
+@property(nonatomic,strong)NSMutableArray *normolArray;
+@property(nonatomic,strong)NSMutableArray *hardArray;
 @property (weak, nonatomic) IBOutlet UITableView *table;
 
 @end
@@ -25,7 +30,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataArray = [NSMutableArray array];
+    
+    self.easyArray = [NSMutableArray array];
+    self.normolArray = [NSMutableArray array];
+    self.hardArray = [NSMutableArray array];
+    self.dataArray = [NSMutableArray arrayWithObjects:_easyArray,_normolArray,_hardArray, nil];
+    _index = 1;
     
     [self getDataFromNet];
     
@@ -45,11 +55,21 @@
         
         if ([responseObject[@"result"] isKindOfClass:[NSArray class]]) {
             NSArray *arr = responseObject[@"result"];
-            [_dataArray removeAllObjects];
+            
+            [_easyArray removeAllObjects];
+            [_normolArray removeAllObjects];
+            [_hardArray removeAllObjects];
             
             for (NSDictionary *dic in arr) {
                 SuiteModel *s = [SuiteModel creatSuiteWithDict:dic];
-                [_dataArray addObject:s];
+                
+                if ([dic[@"type"] isEqualToString:@"初级"]) {
+                    [_easyArray addObject:s];
+                }else if([dic[@"type"] isEqualToString:@"中级"])
+                {
+                    [_normolArray addObject:s];
+                }else if ([dic[@"type"] isEqualToString:@"高级"])
+                    [_hardArray addObject:s];
             }
             
             [_table reloadData];
@@ -77,7 +97,8 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataArray.count;
+    NSArray *arr = _dataArray[_index - 1];
+    return arr.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,11 +114,19 @@
     
     cell.number.text = [NSString stringWithFormat:@"%ld",indexPath.row+1];
     
-    SuiteModel *suite = _dataArray[indexPath.row];
+    NSArray *arr = _dataArray[_index - 1];
+    SuiteModel *suite = arr[indexPath.row];
     cell.suite = suite;
     
     return  cell;
 }
 
+- (IBAction)selectType:(UIButton *)sender {
+    
+    _index = sender.tag;
+    
+    [_table reloadData];
+    
+}
 
 @end

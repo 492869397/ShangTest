@@ -28,6 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"习题收藏";
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.TableView];
     [self requestMethod];

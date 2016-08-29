@@ -122,7 +122,7 @@
     _answer.text = [NSString stringWithFormat:@"正确答案是:%@,您的选择是:%c",ques.optionLetter,s.intValue+'A'-1];
     
     
-    //设置选中的背景颜色
+    //设置按钮选中的背景颜色
     for (int i=1; i<=_dataArray.count;i++ ) {
         UIButton *b = [_buttonView viewWithTag:i];
         b.backgroundColor = [UIColor whiteColor];

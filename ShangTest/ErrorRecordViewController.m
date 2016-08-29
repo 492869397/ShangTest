@@ -28,6 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"错题记录";
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self.view addSubview:self.TableView];
     [self requestMethod];
     [self.view addSubview:self.lblNum];

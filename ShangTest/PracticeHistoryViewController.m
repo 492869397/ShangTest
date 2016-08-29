@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"练习历史";
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.TableView];
     [self requestMethod];

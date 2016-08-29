@@ -313,6 +313,22 @@
 -(void)selectOption:(NSString*)option
 {
     
+    NSString *s = [option substringFromIndex:option.length-1];
+    
+    UILabel *answer = [[UILabel alloc]initWithFrame:CGRectMake(30, 20, SCREEN_WIDTH-60, 100)];
+    [answer setTextColor: [UIColor orangeColor]];
+    answer.numberOfLines = 0 ;
+    answer.lineBreakMode = NSLineBreakByWordWrapping;
+    answer.text = [NSString stringWithFormat:@"正确答案是:%@,您的选择是:%c",_question.optionLetter,s.intValue+'A'-1];
+    [answer sizeToFit];
+    
+    [_analyze addSubview:answer];
+    
+    [_analyze mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(20+answer.frame.size.height);
+    }];
+    
+    
     
     for (SingleAnswerView* ansView in _singleAnswerArray) {
         if ([option isEqualToString:ansView.key]) {
@@ -329,6 +345,8 @@
             [ansView showResult:YES];
         }
     }
+    
+    
     
 }
 
