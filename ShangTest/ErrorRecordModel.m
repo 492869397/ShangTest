@@ -18,6 +18,8 @@
         self.total = dic[@"total"];
         self.suite_title = dic[@"suite_title"];
         self.module_title = dic[@"module_title"];
+        self.suite_code = dic[@"suite_code"];
+        self.module_code = dic[@"module_code"];
         
     }
     return self;

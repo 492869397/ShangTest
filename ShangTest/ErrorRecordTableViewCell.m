@@ -7,6 +7,8 @@
 //
 
 #import "ErrorRecordTableViewCell.h"
+#import "ErrorCheckViewController.h"
+#import "ErrorRemakeViewController.h"
 
 @implementation ErrorRecordTableViewCell
 
@@ -25,9 +27,19 @@
     _model = model;
     NSString *strSign = @"--";
     [self.Titlelbl setText:[NSString stringWithFormat:@"%@%@%@",model.module_title,strSign,model.suite_title]];
-    //    [self.Smalltitle setText:model.content];
-    //    NSURL *url = [NSURL URLWithString:model.photo];
-    //    [self.imageview  sd_setImageWithURL:url];
     
 }
+
+- (IBAction)lookMistakeTopic:(id)sender {
+    ErrorCheckViewController *viewController = [[ErrorCheckViewController alloc]init];
+    [_delegate.navigationController pushViewController:viewController animated:YES];
+    viewController.suite_code = _model.suite_code;
+}
+
+- (IBAction)practiceMistakeTopic:(id)sender {
+    ErrorRemakeViewController *viewController = [[ErrorRemakeViewController alloc]init];
+    [_delegate.navigationController pushViewController:viewController animated:YES];
+    viewController.suite_code = _model.suite_code;
+}
+
 @end

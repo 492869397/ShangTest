@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *ErrorPracticelbl;
 @property (strong ,nonatomic)ErrorRecordModel *model;
 
+@property(weak,nonatomic)UIViewController *delegate;
+
 @end

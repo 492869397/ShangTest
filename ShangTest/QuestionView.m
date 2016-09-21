@@ -11,6 +11,8 @@
 #import "TestViewController.h"
 #import "TestResultViewController.h"
 
+#import "ErrorRemakeViewController.h"
+
 
 @interface SingleAnswerView : UIView
 
@@ -58,9 +60,9 @@
     _answerContent.numberOfLines = 0;
     [self addSubview:_answerContent];
     
-//    if (i % 2 == 0) {
-//        self.backgroundColor = [UIColor lightGrayColor];
-//    }
+    if (i % 2 == 0) {
+        self.backgroundColor = [UIColor lightGrayColor];
+    }
     
     //序号
     _sequenceNumber.text = [NSString stringWithFormat:@"%c",'A'+i];
@@ -267,7 +269,17 @@
         make.centerX.equalTo(_analyze);
         make.bottom.equalTo(containerView).offset(-20);
         
-        if (index >= _delegate.dataArray.count-1) {
+        
+        NSInteger i;
+        if([_delegate isKindOfClass:[TestViewController class]])
+        {
+            i = ((TestViewController*)_delegate).dataArray.count-1;
+        }else if([_delegate isKindOfClass:[ErrorRemakeViewController class]])
+        {
+            i = ((ErrorRemakeViewController*)_delegate).dataArray.count-1;
+        }
+        
+        if (index >= i) {
             make.height.mas_equalTo(40);
         }else
         {
@@ -286,7 +298,16 @@
 
 -(void)selectAnAnswer:(UITapGestureRecognizer*)tap
 {
-    if (![_delegate.selectArray[_index] isEqualToString:@""]) {
+    NSMutableArray *array;
+    if([_delegate isKindOfClass:[TestViewController class]])
+    {
+        array = ((TestViewController*)_delegate).selectArray;
+    }else if([_delegate isKindOfClass:[ErrorRemakeViewController class]])
+    {
+        array = ((ErrorRemakeViewController*)_delegate).selectArray;
+    }
+    
+    if (![array[_index] isEqualToString:@""]) {
         return;
     }
     
@@ -307,12 +328,43 @@
     
     [self selectOption:s];
     
-    [_delegate.selectArray replaceObjectAtIndex:_index withObject:s];
+    [array replaceObjectAtIndex:_index withObject:s];
 }
 
 -(void)selectOption:(NSString*)option
 {
     
+    //只显示正确答案，没有选项
+    if(option == nil)
+    {
+        
+        UILabel *answer = [[UILabel alloc]initWithFrame:CGRectMake(30, 20, SCREEN_WIDTH-60, 100)];
+        [answer setTextColor: [UIColor orangeColor]];
+        answer.numberOfLines = 0 ;
+        answer.lineBreakMode = NSLineBreakByWordWrapping;
+        answer.text = [NSString stringWithFormat:@"正确答案是:%@",_question.optionLetter];
+        [answer sizeToFit];
+        
+        [_analyze addSubview:answer];
+        
+        [_analyze mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(20+answer.frame.size.height);
+        }];
+        
+        
+        
+        for (SingleAnswerView* ansView in _singleAnswerArray) {
+            if ([ansView.key isEqualToString:_question.option_code]) {
+                [ansView showResult:YES];
+            }
+        }
+        
+        
+        return;
+    }
+    
+    
+    //显示答案和选项
     NSString *s = [option substringFromIndex:option.length-1];
     
     UILabel *answer = [[UILabel alloc]initWithFrame:CGRectMake(30, 20, SCREEN_WIDTH-60, 100)];
@@ -354,7 +406,15 @@
 
 -(void)enterNext:(id)sender
 {
-    [_delegate commitAnswer];
+    if([_delegate isKindOfClass:[TestViewController class]])
+    {
+        [((TestViewController*)_delegate) commitAnswer];
+    }else if([_delegate isKindOfClass:[ErrorRemakeViewController class]])
+    {
+        [((ErrorRemakeViewController*)_delegate) commitAnswer];
+    }
+    
+    
 }
 
 

@@ -335,4 +335,5 @@ typedef NS_ENUM(NSInteger,SelectCode)
         [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
     }];
 }
+
 @end

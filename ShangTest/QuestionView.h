@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "QuestionModel.h"
 @class TestViewController;
+@class ErrorRemakeViewController;
+
 @interface QuestionView : UIView
 
 @property(nonatomic,assign)NSInteger index;
 
 @property(nonatomic,assign)BOOL canTouch;
 
-@property(nonatomic,weak)TestViewController *delegate;
+@property(nonatomic,weak)UIViewController *delegate;
 
 -(void)setContentWithQuestion:(QuestionModel*)question withIndex:(NSInteger)index;
 

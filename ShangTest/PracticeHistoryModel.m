@@ -16,6 +16,12 @@
     {
         self.total = dic[@"total"];
         self.title = dic[@"title"];
+        self.content = dic[@"content"];
+        self.companyGradeId = dic[@"companyGradeId"];
+        self.interviewTypeId = dic[@"interviewTypeId"];
+        self.reviewTypeId = dic[@"reviewTypeId"];
+
+        
    
     }
     return self;

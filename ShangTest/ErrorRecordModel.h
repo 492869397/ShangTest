@@ -41,6 +41,8 @@
 @property (nonatomic ,copy)NSString *total;
 @property (nonatomic ,copy)NSString *suite_title;
 @property (nonatomic ,copy)NSString *module_title;
+@property (nonatomic ,copy)NSString *suite_code;
+@property (nonatomic ,copy)NSString *module_code;
 
 -(instancetype)initWithDict:(NSDictionary *)dic;
 +(instancetype)initWithDict:(NSDictionary *)dic;

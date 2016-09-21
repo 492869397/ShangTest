@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailedAnswerViewController">
+            <connections>
+                <outlet property="Answerlbl" destination="X0R-eh-RkS" id="qY3-3Y-tO8"/>
+                <outlet property="Problemlbl" destination="I3x-0W-ksq" id="uD1-wP-gvS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="自我介绍一下你自己？" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3x-0W-ksq">
+                    <frame key="frameInset" minX="15" minY="74" width="290" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="———————试题详解——————" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vAM-sF-erm">
+                    <frame key="frameInset" minX="15" minY="115" width="290" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ccD-mu-cL1">
+                    <frame key="frameInset" minY="146" width="320" height="422"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="257" placeholderIntrinsicHeight="77" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0R-eh-RkS">
+                            <constraints>
+                                <constraint firstAttribute="width" constant="257" id="4go-uh-Tqx"/>
+                            </constraints>
+                            <string key="text">我想知道，你在大学时遇到的最有挑战性的事情是什么？为什么你认为那件事对你最具有挑战性？
+</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.22352941176470589" green="0.73333333333333328" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="答：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ct-Dg-9aY">
+                            <rect key="frame" x="15" y="10" width="36" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="6aG-1R-CZC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.22352941179999999" green="0.73333333329999995" blue="0.95294117649999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="8Ct-Dg-9aY" firstAttribute="top" secondItem="ccD-mu-cL1" secondAttribute="top" constant="10" id="EXA-M6-pKF"/>
+                        <constraint firstItem="X0R-eh-RkS" firstAttribute="top" secondItem="ccD-mu-cL1" secondAttribute="top" constant="10" id="PuS-UE-kCo"/>
+                        <constraint firstItem="X0R-eh-RkS" firstAttribute="leading" secondItem="ccD-mu-cL1" secondAttribute="leading" constant="40" id="WPK-jl-rnn"/>
+                        <constraint firstItem="8Ct-Dg-9aY" firstAttribute="leading" secondItem="ccD-mu-cL1" secondAttribute="leading" constant="15" id="Xj2-ss-2mC"/>
+                        <constraint firstAttribute="bottom" secondItem="X0R-eh-RkS" secondAttribute="bottom" constant="20" id="aCh-hU-f55"/>
+                        <constraint firstAttribute="trailing" secondItem="X0R-eh-RkS" secondAttribute="trailing" constant="15" id="be7-Fs-vZ2"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vAM-sF-erm" firstAttribute="top" secondItem="I3x-0W-ksq" secondAttribute="bottom" constant="20" id="0kQ-dl-jgH"/>
+                <constraint firstItem="ccD-mu-cL1" firstAttribute="top" secondItem="vAM-sF-erm" secondAttribute="bottom" constant="10" id="0sy-4b-AND"/>
+                <constraint firstAttribute="trailing" secondItem="vAM-sF-erm" secondAttribute="trailing" constant="15" id="1lu-zp-8Hj"/>
+                <constraint firstItem="vAM-sF-erm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="3e6-YA-WYx"/>
+                <constraint firstItem="ccD-mu-cL1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6u7-jk-vkA"/>
+                <constraint firstItem="I3x-0W-ksq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="BBP-fZ-5gr"/>
+                <constraint firstAttribute="trailing" secondItem="I3x-0W-ksq" secondAttribute="trailing" constant="15" id="KoP-GQ-FqA"/>
+                <constraint firstAttribute="trailing" secondItem="ccD-mu-cL1" secondAttribute="trailing" id="dya-mu-NxI"/>
+                <constraint firstAttribute="bottom" secondItem="ccD-mu-cL1" secondAttribute="bottom" id="h73-wy-Qw9"/>
+                <constraint firstItem="I3x-0W-ksq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="nBA-Pb-Pkr"/>
+            </constraints>
+            <point key="canvasLocation" x="398" y="356"/>
+        </view>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="UIi-yh-6gO">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </scrollView>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Rxr-Wb-OMl">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </scrollView>
+        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="183-BS-dhF">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </scrollView>
+    </objects>
+</document>

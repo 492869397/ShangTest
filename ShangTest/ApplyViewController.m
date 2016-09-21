@@ -17,6 +17,8 @@
 
 @property(strong,nonatomic)UIView *headerView;
 
+@property(strong,nonatomic)NSArray *array;
+
 @end
 
 @implementation ApplyViewController
@@ -26,6 +28,8 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self initViewLayout];
+    
+    
 }
 
 -(void)initViewLayout

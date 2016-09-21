@@ -12,13 +12,17 @@
 #import "TopicCollectViewController.h"
 #import "PracticeHistoryViewController.h"
 #import "ErrorRecordViewController.h"
+#import "CompanyInterviewViewController.h"
+#import "FeedbackViewController.h"
+#import "LogicalThinkingViewController.h"
+#import "MainlyRevisionViewController.h"
 
 
 @interface SelectViewController ()
 
 @property(strong,nonatomic)NSMutableArray *dataArray;
 @property(strong,nonatomic)UICollectionView *collect;
-
+@property(nonatomic,assign)NSInteger Tag;
 @end
 
 @implementation SelectViewController
@@ -103,6 +107,7 @@
 {
  
     UIViewController *viewController;
+    
     switch (indexPath.row) {
         case 0:
             viewController = [[TopicCollectViewController alloc]init];
@@ -115,22 +120,42 @@
         case 2:
             
         case 3:
+            viewController = [[MainlyRevisionViewController alloc]init];
+            break;
+
             
         case 4:
             viewController = [[PracticeHistoryViewController alloc]init];
             break;
             
         case 5:
+            _Tag = 2;
+            [self Method];
+            
+            break;
             
         case 6:
             viewController = [[ErrorRecordViewController alloc]init];
+            
             break;
             
         case 7:
+            viewController = [[CompanyInterviewViewController alloc]init];
+            
+            break;
             
         case 8:
+            viewController = [[FeedbackViewController alloc]init];
             
+            break;
+
         case 9:
+            
+             _Tag = 1;
+            [self Method];
+            
+            break;
+
             
         default:
             break;
@@ -139,8 +164,11 @@
     
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
-
-
+#pragma mark 人事和逻辑
+-(void)Method{
+    LogicalThinkingViewController *l = [[LogicalThinkingViewController alloc]init];
+    l.num = _Tag;
+    [self.navigationController pushViewController:l animated:YES];
+}
 
 @end

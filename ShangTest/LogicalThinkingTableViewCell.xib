@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LogicalThinkingTableViewCell" rowHeight="70" id="KGk-i7-Jjw" customClass="LogicalThinkingTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="320" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.描述冒泡算法？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BV-Vm-OFP">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="iQh-hZ-3Ka"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="答：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7C-Ae-ezw">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="Ths-ZW-Q8d"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" red="0.26274509800000001" green="0.58431372550000005" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="垃圾回收器的基本原理是什么？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pll-ss-3hg">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="DJ8-5v-8nQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.26274509800000001" green="0.58431372550000005" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8BV-Vm-OFP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="7BY-Vz-Why"/>
+                    <constraint firstItem="g7C-Ae-ezw" firstAttribute="top" secondItem="8BV-Vm-OFP" secondAttribute="bottom" constant="5" id="AH5-eK-pFP"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8BV-Vm-OFP" secondAttribute="trailing" constant="15" id="JAU-03-bds"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Pll-ss-3hg" secondAttribute="trailing" constant="15" id="JWm-Lm-3EP"/>
+                    <constraint firstItem="g7C-Ae-ezw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="RPw-ZA-tZ3"/>
+                    <constraint firstItem="8BV-Vm-OFP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="Wpq-ge-wfK"/>
+                    <constraint firstItem="Pll-ss-3hg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="42" id="eeK-VN-m2X"/>
+                    <constraint firstItem="Pll-ss-3hg" firstAttribute="top" secondItem="8BV-Vm-OFP" secondAttribute="bottom" constant="5" id="v8i-IR-pQj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="AnswerTitle" destination="Pll-ss-3hg" id="SY6-UF-H9A"/>
+                <outlet property="ProblemTitle" destination="8BV-Vm-OFP" id="efu-qb-Xqf"/>
+            </connections>
+            <point key="canvasLocation" x="190" y="202"/>
+        </tableViewCell>
+    </objects>
+</document>

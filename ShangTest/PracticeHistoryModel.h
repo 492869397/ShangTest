@@ -31,6 +31,10 @@
 @interface PracticeHistoryModel : NSObject
 @property (nonatomic ,copy)NSString *total;
 @property (nonatomic ,copy)NSString *title;
+@property (nonatomic ,copy)NSString *content;
+@property (nonatomic ,copy)NSString *companyGradeId;
+@property (nonatomic ,copy)NSString *interviewTypeId;
+@property (nonatomic ,copy)NSString *reviewTypeId;
 
 -(instancetype)initWithDict:(NSDictionary *)dic;
 +(instancetype)initWithDict:(NSDictionary *)dic;

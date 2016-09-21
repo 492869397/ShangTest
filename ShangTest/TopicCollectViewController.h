@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PracticeHistoryTableViewCell.h"
 @interface TopicCollectViewController : UIViewController
 
 @end

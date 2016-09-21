@@ -14,11 +14,24 @@
 +(instancetype)creatQuestionWithDict:(NSDictionary*)dict
 {
     QuestionModel *ques = [[QuestionModel alloc]init];
-    ques.question = (dict[@"question"])[@"title"];
+    
+    if ([dict[@"question"] isKindOfClass:[NSDictionary class]]) {
+        
+        ques.question = (dict[@"question"])[@"title"];
+        ques.question_code = (dict[@"question"])[@"question_code"];
+        
+    }else
+    {
+        ques.question = ([dict[@"question"] firstObject])[@"title"];
+        ques.question_code = ([dict[@"question"] firstObject])[@"question_code"];
+    }
+    
+    
     ques.option_code = [dict[@"result"] firstObject] [@"option_code"];
     ques.optionLetter = [dict[@"result"] firstObject] [@"result"];
-    ques.question_code = (dict[@"question"])[@"question_code"];
+    
     ques.answerArray = [NSMutableArray array];
+    
     
     for (NSDictionary *dic in dict[@"option"]) {
         OptionModel *op = [OptionModel creatOptionWithDict:dic];

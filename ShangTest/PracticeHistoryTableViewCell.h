@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PracticeHistoryModel.h"
 @interface PracticeHistoryTableViewCell : UITableViewCell
-@property (strong ,nonatomic)PracticeHistoryModel *model;
 
+@property (strong ,nonatomic)NSString *suiteCode;
+
+@property(strong,nonatomic)UIViewController *delegate;
+
+
+-(void)setCellContent:(NSDictionary *)dict;
 @end

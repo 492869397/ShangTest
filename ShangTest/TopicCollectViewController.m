@@ -8,8 +8,7 @@
 
 #import "TopicCollectViewController.h"
 #import "AFNetworking.h"
-#import "PracticeHistoryTableViewCell.h"
-#import "PracticeHistoryModel.h"
+#import "TopicCollectionTableViewCell.h"
 
 
 #define URL @"http://139.224.73.86:8080/sxt_studentsystem/selectTCollection4.do"
@@ -50,9 +49,8 @@
          [self hiddenWaitHUD];
         
          for (NSMutableDictionary *dict in responsObject[@"result"]) {
-             PracticeHistoryModel *model = [PracticeHistoryModel initWithDict:dict];
-             NSLog(@"%@",model.title);
-             [self.array addObject:model];
+             
+             [self.array addObject:dict];
     
          }
          
@@ -87,7 +85,7 @@
         _TableView.allowsSelection = NO;
         _TableView.delegate = self;
         _TableView.dataSource = self;
-        [_TableView registerNib:[UINib nibWithNibName:@"PracticeHistoryTableViewCell" bundle:nil] forCellReuseIdentifier:@"PracticeHistoryTableViewCell"];
+        
         [self.view addSubview:_TableView];
         
     }
@@ -96,12 +94,22 @@
 #pragma mark dalegte 代理
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *identifer = @"PracticeHistoryTableViewCell";
-    PracticeHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
-    PracticeHistoryModel *model = self.array[indexPath.row];
-    cell.model = model;
+    static NSString *identifer = @"cell";
+    TopicCollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
+    
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"TopicCollectionTableViewCell" owner:nil options:nil] firstObject];
+    }
+    
+    NSDictionary *dic = self.array[indexPath.row];
+    
+    cell.delegate = self;
+    cell.title.text = dic[@"title"];
+    cell.question_code = dic[@"question_code"];
+    
     return cell;
 }
+
 #pragma mark 高度
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

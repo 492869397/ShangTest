@@ -51,8 +51,8 @@
          _lblNum.text = str;
        
          for (NSMutableDictionary *dict in responsObject[@"result"]) {
-             PracticeHistoryModel *model = [PracticeHistoryModel initWithDict:dict];
-             [self.array addObject:model];
+             
+             [self.array addObject:dict];
          }
          
          [self.TableView reloadData];
@@ -94,8 +94,11 @@
     
     static NSString *identifer = @"PracticeHistoryTableViewCell";
     PracticeHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
-    PracticeHistoryModel *model = self.array[indexPath.row];
-    cell.model = model;
+    
+    NSDictionary *dict = self.array[indexPath.row];
+    [cell setCellContent:dict];
+    cell.delegate = self;
+    
     return cell;
 }
 

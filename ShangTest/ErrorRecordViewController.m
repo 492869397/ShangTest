@@ -49,9 +49,8 @@
     [mgr2 POST:URL parameters:params2  success:^(AFHTTPRequestOperation * operation, id responsObject)
      {
          NSMutableString *a = [[NSMutableString alloc ] initWithString :@"共有条做题记录"];
-         //NSLog(@"qqqq=%@",a);
+         NSLog(@"%@",responsObject);
          NSNumber *time =responsObject[@"total"];
-         //NSLog(@"wwww=%@",time);
          NSString *strTime = [NSString stringWithFormat:@"%@",time];
          [a insertString:strTime atIndex:2];
          NSString *str = a;
@@ -102,8 +101,12 @@
 {
     static NSString *identifer = @"ErrorRecordTableViewCell";
     ErrorRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifer];
+    
+    
     ErrorRecordModel *model = self.array[indexPath.row];
     cell.model = model;
+    cell.delegate = self;
+    
     return cell;
 }
 #pragma mark 高度
