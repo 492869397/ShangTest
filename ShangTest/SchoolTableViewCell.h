@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SchoolTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *starView;
 
 @end

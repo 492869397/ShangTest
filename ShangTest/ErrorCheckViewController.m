@@ -39,6 +39,10 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"查看错题";
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     

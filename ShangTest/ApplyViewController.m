@@ -11,6 +11,8 @@
 #import "SchoolDetailViewController.h"
 #import "ProblemViewController.h"
 
+#import "StaticStarLevelView.h"
+
 #import <SDCycleScrollView.h>
 
 @interface ApplyViewController ()
@@ -153,7 +155,7 @@
 -(void)tapView:(UITapGestureRecognizer*)tap
 {
     ProblemViewController *pro = [[ProblemViewController alloc]init];
-    [self.navigationController pushViewController:pro animated:YES];
+    [self.tabBarController.navigationController pushViewController:pro animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,7 +170,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 15;
+    return 10;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,6 +180,15 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"SchoolTableViewCell" owner:nil options:nil]firstObject];
     }
+    
+    if (![cell viewWithTag:10]) {
+        StaticStarLevelView *v = [[StaticStarLevelView alloc]initWithFrame:CGRectMake(0, 0, 75, 15)];
+        [v setScore:1];
+        v.tag = 10;
+        [cell.starView addSubview:v];
+    }
+    
+    
     
     
     return  cell;
@@ -189,19 +200,6 @@
     [self.tabBarController.navigationController pushViewController:school animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-//{
-//    return 170;
-//}
-//
-//-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    return _headerView;
-//}
-
-
-
 
 
 @end

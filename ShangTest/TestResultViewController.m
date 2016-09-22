@@ -38,8 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_pieCharView addAngleValue:.6 andColor:[UIColor redColor]];
-    [_pieCharView addAngleValue:.4 andColor:[UIColor yellowColor]];
+    
+    self.title = @"测试结果";
     
     
 }
@@ -97,6 +97,12 @@
     
     _quesCount.text = [NSString stringWithFormat:@"本次练习含：%ld道题",_dataArray.count];
     _wrongCount.text = [NSString stringWithFormat:@"答错%d道",wrongCount];
+    
+    
+    //饼状图
+    float value = wrongCount * 1.0/_dataArray.count ;
+    [_pieCharView addAngleValue:value andColor:[UIColor redColor]];
+    [_pieCharView addAngleValue:1-value andColor:[UIColor yellowColor]];
     
 }
 

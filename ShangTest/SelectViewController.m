@@ -162,13 +162,13 @@
     }
     
     
-    [self.navigationController pushViewController:viewController animated:YES];
+    [self.tabBarController.navigationController pushViewController:viewController animated:YES];
 }
 #pragma mark 人事和逻辑
 -(void)Method{
     LogicalThinkingViewController *l = [[LogicalThinkingViewController alloc]init];
     l.num = _Tag;
-    [self.navigationController pushViewController:l animated:YES];
+    [self.tabBarController.navigationController pushViewController:l animated:YES];
 }
 
 @end

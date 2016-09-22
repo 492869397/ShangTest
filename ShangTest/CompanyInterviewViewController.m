@@ -95,7 +95,7 @@
 #pragma mark 懒加载表格
 -(UITableView *)TableView{
     if (!_TableView) {
-        _TableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 74, SCREEN_WIDTH, SCREEN_HEIGHT -114)style:(UITableViewStylePlain)];
+        _TableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT -64 - 40)style:(UITableViewStylePlain)];
         _TableView.separatorColor = [UIColor lightGrayColor];
         _TableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _TableView.backgroundColor = [UIColor whiteColor];

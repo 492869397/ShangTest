@@ -29,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"考试测试";
+    
     self.array = [NSMutableArray array];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -123,6 +125,8 @@
     TestTypeViewController *test = [[TestTypeViewController alloc]init];
     ModuleModel *m = _array[indexPath.row];
     test.module_code = m.module_code;
+    
+    test.title = m.module_name;
     
     [self.navigationController pushViewController:test animated:YES];
 }

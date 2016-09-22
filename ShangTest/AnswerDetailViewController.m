@@ -27,6 +27,8 @@
     [super viewDidLoad];
     
     [self setSubview];
+    
+    self.title = @"习题收藏";
 }
 
 - (void)didReceiveMemoryWarning {

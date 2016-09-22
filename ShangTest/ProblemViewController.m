@@ -27,7 +27,7 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0.95 green:0.93 blue:0.93 alpha:1];
     self.selectSection = -1;
     self.array = @[@"为什么有视频还要花钱参加你们培训？",@"培训还是自学？到底该怎么选？",@"很多人说培训不如自学，自学的扎实，是不是这样？",@"实习怎么样？我觉得我什么都不会，需要实习。",@"我已经掌握完整的技术体系，能不能去实习？",@"为什么企业不愿意培养零基础的新人？",@"每次课后都有作业吗？作业多吗？ 会不会很辛苦？",@"有的机构总频繁的换老师，你们会不会换老师？",@"课程内容这么多，都能学完吗？",@"如果学了一部分跟不上怎么办？",@"怎么检测和保证我的学习效果？效果如何体现？",@"我基础很好，只想学中级和高级？",@"你们的课程时间是如何安排的？",@"机房是全天开着的吗？",@"节假日可以去学习吗？",@"你们教室能保持安静吗，能保证学生上课不受影响吗？",@"老师每次上课时间是固定的吗，会随时调整吗？",@"学习期间中途有事儿，可以请假吗？落下课程怎么补",@"报名之后还能再退吗？",@"能试听吗？",@"学不会，还可以全额退款吗？",@"我不确定选什么专业，哪个专业薪资高，有推荐吗？",@"项目的源码会给我们吗？",@"刚开始学习就会做项目吗？",@"我现在没钱，花销大，打算先赚钱，之后再过来学？",@"进入软件行业都要系统培训，我想以后再报名，不着急",@"在尚学堂学完有什么证书吗？",@"尚学堂包就业吗？",@"女孩学编程好就业吗？",@"女孩学开发太累了，不想学，想学测试？"];
     
@@ -45,7 +45,8 @@
     _table.delegate = self;
     _table.rowHeight = UITableViewAutomaticDimension;
     _table.estimatedRowHeight = 60;
-    _table.backgroundColor = [UIColor lightGrayColor];
+    _table.backgroundColor = self.view.backgroundColor;
+    _table.allowsSelection = NO;
     
 }
 
@@ -131,16 +132,19 @@
 {
     if (_selectSection == tap.view.tag) {
         _selectSection = -1;
+        [self.table reloadData];
     }else
     {
         _selectSection = tap.view.tag;
+        
+        [self.table reloadData];
+        
+        [self.table layoutIfNeeded];
+        
+        [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_selectSection] atScrollPosition:(UITableViewScrollPositionTop) animated:YES];
 
     }
-    [self.table reloadData];
     
-    [self.table layoutIfNeeded];
-    
-    [self.table scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:_selectSection] atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
 }
 
 @end

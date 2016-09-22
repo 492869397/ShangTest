@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SelectViewController.h"
 #import "ApplyViewController.h"
+#import "DiscoverViewController.h"
 
 
 @interface AppDelegate ()
@@ -20,33 +21,45 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [self initMagicRecord];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
+    
     ApplyViewController *apply = [[ApplyViewController alloc]init];
+    apply.title = @"报名";
+    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:apply];
     UIImage *image = [[UIImage imageNamed:@"shop_home_base11"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *selectImage = [[UIImage imageNamed:@"shop_home_base12"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    apply.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"报名" image:image selectedImage:selectImage];
+    nav1.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"报名" image:image selectedImage:selectImage];
+    
     
     
     SelectViewController *select = [[SelectViewController alloc]init];
+    UINavigationController *nav2 = [[UINavigationController alloc]initWithRootViewController:select];
+    select.title = @"答题";
     image = [[UIImage imageNamed:@"shop_home_base21"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     selectImage = [[UIImage imageNamed:@"shop_home_base22"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    select.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"答题" image:image selectedImage:selectImage];
+    nav2.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"答题" image:image selectedImage:selectImage];
     
+    
+    DiscoverViewController *dis = [[DiscoverViewController alloc]init];
+    dis.title = @"发现";
+    UINavigationController *nav3 = [[UINavigationController alloc]initWithRootViewController:dis];
+    image = [[UIImage imageNamed:@"shop_home_base31"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    selectImage = [[UIImage imageNamed:@"shop_home_base32"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav3.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"发现" image:image selectedImage:selectImage];
     
     
     UITabBarController *tab = [[UITabBarController alloc]init];
     tab.tabBar.backgroundColor = [UIColor redColor];
-    tab.viewControllers = @[apply,select];
+    tab.viewControllers = @[nav1,nav2,nav3];
     
     
     RootNavigationController *nav = [[RootNavigationController alloc]initWithRootViewController:tab];
     
     
     UINavigationBar * navBar =[UINavigationBar appearance] ;
-    [navBar setBackgroundColor:[UIColor blueColor]];
+    [navBar setBarTintColor:[UIColor colorWithRed:0.35 green:0.77 blue:0.93 alpha:1]];
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -70) forBarMetrics:UIBarMetricsDefault];
     //将返回，左，右 item的字体颜色设置为白色
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
