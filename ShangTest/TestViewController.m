@@ -31,9 +31,6 @@ typedef NS_ENUM(NSInteger,SelectCode)
 
 
 
-
-@property(assign,nonatomic)NSInteger leftIndex;
-
 @end
 
 @implementation TestViewController
@@ -57,14 +54,13 @@ typedef NS_ENUM(NSInteger,SelectCode)
     self.correctArray = [NSMutableArray array];
     
     _displayIndex = 0;
-    _leftIndex = 0;
     
     self.scroll = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
     _scroll.contentSize = CGSizeMake(SCREEN_WIDTH*3, 0.0);
     _scroll.pagingEnabled = YES;
     
     _scroll.delegate = self;
-    _scroll.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
+    
     
     [self.view addSubview:_scroll];
     
@@ -145,7 +141,7 @@ typedef NS_ENUM(NSInteger,SelectCode)
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self hiddenWaitHUD];
-
+        
         [self showHUDWithMessage:@"网络连接失败" HiddenDelay:0.5];
     }];
 }
@@ -163,12 +159,12 @@ typedef NS_ENUM(NSInteger,SelectCode)
     _centerView.delegate = self;
     _rightView.delegate = self;
     
-
+    
     
     [_scroll addSubview:_leftView];
     [_scroll addSubview:_centerView];
     [_scroll addSubview:_rightView];
-
+    
     
 }
 
@@ -183,30 +179,56 @@ typedef NS_ENUM(NSInteger,SelectCode)
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
-    [self reloadImage];
+    [self reloadView];
     
-    [self setInfoByCurrentIndex:_displayIndex];
     
-    _scroll.contentOffset = CGPointMake(SCREEN_WIDTH, 0.0);
+    //由于是不循环的滚动，所有在开头和结尾页面不需要调整中间页面的视图
+    if (_displayIndex > 0 && _displayIndex < _dataArray.count - 1) {
+        [self setInfoByCurrentIndex:_displayIndex];
+        
+        _scroll.contentOffset = CGPointMake(SCREEN_WIDTH, 0.0);
+    }
     
-
 }
 
-- (void)reloadImage {
+//计算index
+- (void)reloadView {
     
     CGPoint contentOffset = [_scroll contentOffset];
     
     NSInteger centerIndex = _displayIndex  ;
     
-    if (contentOffset.x > SCREEN_WIDTH) { //向左滑动
+    
+    //部分页面不是在中间显示，所以计算index的方法不同
+    if (_displayIndex == 0) {
         
-        centerIndex = _displayIndex +1;
-        
-     } else if (contentOffset.x < SCREEN_WIDTH) { //向右滑动
-        centerIndex = _displayIndex - 1;
+        if (contentOffset.x > 0) { //向左滑动
+            centerIndex = _displayIndex +1;
+        }
     }
-
-    if (centerIndex < 0 ) {
+    
+    if (_displayIndex == _dataArray.count - 1) {
+        
+        if (contentOffset.x < SCREEN_WIDTH * 2) { //向左滑动
+            centerIndex = _displayIndex - 1;
+        }
+    }
+    
+    if (_displayIndex > 0 && _displayIndex < _dataArray.count - 1) {
+        
+        if (contentOffset.x > SCREEN_WIDTH) { //向左滑动
+            
+            centerIndex = _displayIndex +1;
+            
+        } else if (contentOffset.x < SCREEN_WIDTH) { //向右滑动
+            centerIndex = _displayIndex - 1;
+        }
+    }
+    
+    
+    
+    
+    if (centerIndex <= 0 ) {
         _displayIndex = 0;
     }else if(centerIndex > _dataArray.count - 1 )
     {
@@ -216,13 +238,12 @@ typedef NS_ENUM(NSInteger,SelectCode)
     {
         _displayIndex = centerIndex;
     }
-    NSLog(@"%ld",_displayIndex);
     
 }
 
 
 - (void)setInfoByCurrentIndex:(NSInteger)currentIndex {
-   
+    
     
     //再重新建立questionView
     [_leftView removeFromSuperview];
@@ -245,13 +266,15 @@ typedef NS_ENUM(NSInteger,SelectCode)
     if (![_selectArray[leftIndex] isEqualToString:@""]) {
         [_leftView selectOption:_selectArray[(currentIndex - 1 + _dataArray.count)%_dataArray.count]];
     }
-   
+    
     
     NSInteger rightIndex = currentIndex+1;
     if (currentIndex >= _dataArray.count - 1) {
         rightIndex = _dataArray.count - 1;
     }
+    
     ques = _dataArray[rightIndex];
+    
     [_rightView setContentWithQuestion:ques withIndex:rightIndex];
     
     if (![_selectArray[rightIndex] isEqualToString:@""]) {
@@ -262,11 +285,11 @@ typedef NS_ENUM(NSInteger,SelectCode)
     
     ques = _dataArray[currentIndex];
     [_centerView setContentWithQuestion:ques withIndex:currentIndex];
-
+    
     if (![_selectArray[currentIndex] isEqualToString:@""]) {
         [_centerView selectOption:_selectArray[currentIndex]];
     }
-
+    
 }
 
 
@@ -299,7 +322,7 @@ typedef NS_ENUM(NSInteger,SelectCode)
     [pass setObject:@"00:00:00" forKey:@"time"];
     [pass setObject:s forKey:@"list"];
     
-
+    
     [manager POST:@"http://139.224.73.86:8080/sxt_studentsystem/addTTestorRecordForList1.do" parameters:pass success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         TestResultViewController *t = [[TestResultViewController alloc]init];
@@ -322,7 +345,7 @@ typedef NS_ENUM(NSInteger,SelectCode)
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSMutableDictionary *pass = [NSMutableDictionary dictionaryWithCapacity:2];
-
+    
     [pass setObject:ques.question_code forKey:@"question_code"];
     [pass setObject:@"0101101" forKey:@"student_id"];
     

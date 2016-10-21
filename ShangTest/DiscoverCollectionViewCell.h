@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DiscoverCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *company;
 
 @end

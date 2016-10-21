@@ -40,6 +40,7 @@
 		041AA4231D93C52F00C8EB61 /* star0.png in Resources */ = {isa = PBXBuildFile; fileRef = 041AA4211D93C52F00C8EB61 /* star0.png */; };
 		041AA4271D93D5CC00C8EB61 /* LifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AA4251D93D5CC00C8EB61 /* LifeViewController.m */; };
 		041AA4281D93D5CC00C8EB61 /* LifeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041AA4261D93D5CC00C8EB61 /* LifeViewController.xib */; };
+		041AA42B1D94C4FC00C8EB61 /* DiscoverHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041AA42A1D94C4FC00C8EB61 /* DiscoverHeadView.m */; };
 		04A2F8301D70149F00182ED4 /* ProblemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2F82F1D70149F00182ED4 /* ProblemViewController.m */; };
 		04A2F8341D70179800182ED4 /* ProblemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A2F8321D70179800182ED4 /* ProblemTableViewCell.m */; };
 		04A2F8351D70179800182ED4 /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A2F8331D70179800182ED4 /* ProblemTableViewCell.xib */; };
@@ -183,6 +184,8 @@
 		041AA4241D93D5CC00C8EB61 /* LifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LifeViewController.h; sourceTree = "<group>"; };
 		041AA4251D93D5CC00C8EB61 /* LifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LifeViewController.m; sourceTree = "<group>"; };
 		041AA4261D93D5CC00C8EB61 /* LifeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LifeViewController.xib; sourceTree = "<group>"; };
+		041AA4291D94C4FC00C8EB61 /* DiscoverHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverHeadView.h; sourceTree = "<group>"; };
+		041AA42A1D94C4FC00C8EB61 /* DiscoverHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverHeadView.m; sourceTree = "<group>"; };
 		04A2F82E1D70149F00182ED4 /* ProblemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemViewController.h; sourceTree = "<group>"; };
 		04A2F82F1D70149F00182ED4 /* ProblemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProblemViewController.m; sourceTree = "<group>"; };
 		04A2F8311D70179800182ED4 /* ProblemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProblemTableViewCell.h; sourceTree = "<group>"; };
@@ -436,6 +439,8 @@
 			children = (
 				041AA4161D936F1800C8EB61 /* DiscoverViewController.h */,
 				041AA4171D936F1800C8EB61 /* DiscoverViewController.m */,
+				041AA4291D94C4FC00C8EB61 /* DiscoverHeadView.h */,
+				041AA42A1D94C4FC00C8EB61 /* DiscoverHeadView.m */,
 				041AA41B1D93832500C8EB61 /* DiscoverCollectionViewCell.h */,
 				041AA41C1D93832500C8EB61 /* DiscoverCollectionViewCell.m */,
 				041AA41D1D93832500C8EB61 /* DiscoverCollectionViewCell.xib */,
@@ -817,7 +822,7 @@
 		BF749CAF1D59AD7D00D22B6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = sxt;
 				TargetAttributes = {
 					BF749CB61D59AD7D00D22B6B = {
@@ -1012,6 +1017,7 @@
 				BFA098771D616A410032445E /* RootNavigationController.m in Sources */,
 				04A62D9F1D90D24300625D5D /* MainlyRevisionViewController.m in Sources */,
 				040AAC701D6FD8E000E6FDB7 /* TopicCollectViewController.m in Sources */,
+				041AA42B1D94C4FC00C8EB61 /* DiscoverHeadView.m in Sources */,
 				BF0564461D6D332000A99DAF /* QuestionView.m in Sources */,
 				BF790C891D62B73E006CE990 /* SchoolDetailTableViewCell.m in Sources */,
 				04A62DB21D90E4BC00625D5D /* TopicCollectionTableViewCell.m in Sources */,
@@ -1089,8 +1095,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1116,7 +1124,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1137,8 +1145,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1158,7 +1168,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1175,6 +1185,7 @@
 				DEVELOPMENT_TEAM = 3845M6C8NE;
 				GCC_PREFIX_HEADER = /Users/mac/Desktop/ShangTest/ShangTest/PrefixHeader.pch;
 				INFOPLIST_FILE = ShangTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sxt.ShangTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1192,6 +1203,7 @@
 				DEVELOPMENT_TEAM = 3845M6C8NE;
 				GCC_PREFIX_HEADER = /Users/mac/Desktop/ShangTest/ShangTest/PrefixHeader.pch;
 				INFOPLIST_FILE = ShangTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sxt.ShangTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

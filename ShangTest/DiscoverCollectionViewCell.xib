@@ -9,34 +9,44 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DiscoverCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="190" height="157"/>
+            <rect key="frame" x="0.0" y="0.0" width="184" height="114"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="190" height="157"/>
+                <rect key="frame" x="0.0" y="0.0" width="184" height="114"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGL-99-7U4">
-                        <frame key="frameInset" minX="15" minY="8" width="93" height="63"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fGL-99-7U4">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="mnk-pe-dVd"/>
+                            <constraint firstAttribute="width" constant="30" id="t1D-WB-5jL"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knu-s0-CzJ">
-                        <frame key="frameInset" minX="40" minY="86" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knu-s0-CzJ">
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZp-c4-0fG">
-                        <frame key="frameInset" minX="39" minY="117" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZp-c4-0fG">
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
-            <size key="customSize" width="190" height="157"/>
-            <point key="canvasLocation" x="61" y="73.5"/>
+            <constraints>
+                <constraint firstItem="knu-s0-CzJ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="1QK-jk-Qjj"/>
+                <constraint firstItem="zZp-c4-0fG" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="3lS-ZT-uEN"/>
+                <constraint firstItem="fGL-99-7U4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="bHu-jG-WRP"/>
+                <constraint firstItem="knu-s0-CzJ" firstAttribute="top" secondItem="fGL-99-7U4" secondAttribute="bottom" constant="5" id="eWl-wc-rpJ"/>
+                <constraint firstItem="fGL-99-7U4" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="wuj-mD-B6h"/>
+                <constraint firstItem="zZp-c4-0fG" firstAttribute="top" secondItem="knu-s0-CzJ" secondAttribute="bottom" constant="3" id="zFC-6G-dzl"/>
+            </constraints>
+            <size key="customSize" width="184" height="114"/>
+            <connections>
+                <outlet property="company" destination="zZp-c4-0fG" id="TfM-aY-uGa"/>
+                <outlet property="name" destination="knu-s0-CzJ" id="ln2-4V-A4P"/>
+            </connections>
+            <point key="canvasLocation" x="58" y="52"/>
         </collectionViewCell>
     </objects>
 </document>

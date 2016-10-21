@@ -10,6 +10,7 @@
 #import "SelectViewController.h"
 #import "ApplyViewController.h"
 #import "DiscoverViewController.h"
+#import "LifeViewController.h"
 
 
 @interface AppDelegate ()
@@ -49,10 +50,17 @@
     selectImage = [[UIImage imageNamed:@"shop_home_base32"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     nav3.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"发现" image:image selectedImage:selectImage];
     
+    LifeViewController *life = [[LifeViewController alloc]init];
+    life.title = @"生活";
+    UINavigationController *nav4 = [[UINavigationController alloc]initWithRootViewController:life];
+    image = [[UIImage imageNamed:@"shop_home_base41"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    selectImage = [[UIImage imageNamed:@"shop_home_base42"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav4.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"生活" image:image selectedImage:selectImage];
+    
     
     UITabBarController *tab = [[UITabBarController alloc]init];
     tab.tabBar.backgroundColor = [UIColor redColor];
-    tab.viewControllers = @[nav1,nav2,nav3];
+    tab.viewControllers = @[nav1,nav2,nav3,nav4];
     
     
     RootNavigationController *nav = [[RootNavigationController alloc]initWithRootViewController:tab];
